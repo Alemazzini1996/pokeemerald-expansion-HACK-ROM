@@ -375,3 +375,17 @@ const u32 gObjectEventPic_Lugia[] = INCBIN_U32("graphics/object_events/pics/poke
 const u16 gObjectEventPal_Lugia[] = INCBIN_U16("graphics/object_events/palettes/lugia.gbapal");
 const u32 gObjectEventPic_HoOh[] = INCBIN_U32("graphics/object_events/pics/pokemon/ho_oh.4bpp");
 const u16 gObjectEventPal_HoOh[] = INCBIN_U16("graphics/object_events/palettes/ho_oh.gbapal");
+
+// New OWs
+const u32 gObjectEventPic_GoldItemBall[] = INCBIN_U32("graphics/object_events/pics/misc/gold_item_ball.4bpp");
+const u32 gObjectEventPic_MegaStone[] = INCBIN_U32("graphics/object_events/pics/misc/mega_stone.4bpp");
+const u32 gObjectEventPic_Gamecube[] = INCBIN_U32("graphics/object_events/pics/misc/gamecube.4bpp");
+const u16 gObjectEventPal_Gamecube[] = INCBIN_U16("graphics/object_events/palettes/gamecube.gbapal");
+const u32 gObjectEventPic_LassHGSS[] = INCBIN_U32("graphics/object_events/pics/people/lass_hgss.4bpp");
+const u16 gObjectEventPal_LassHGSS[] = INCBIN_U16("graphics/object_events/palettes/lass_hgss.gbapal");
+const u32 gObjectEventPic_BreederFHGSS[] = INCBIN_U32("graphics/object_events/pics/people/breeder_f_hgss.4bpp");
+const u16 gObjectEventPal_BreederFHGSS[] = INCBIN_U16("graphics/object_events/palettes/breeder_f_hgss.gbapal");
+const u32 gObjectEventPic_HexManiacORAS[] = INCBIN_U32("graphics/object_events/pics/people/hex_maniac_oras.4bpp");
+const u16 gObjectEventPal_HexManiacORAS[] = INCBIN_U16("graphics/object_events/palettes/hex_maniac_oras.gbapal");
+const u32 gObjectEventPic_RocketGruntFHGSS[] = INCBIN_U32("graphics/object_events/pics/people/rocket_grunt_f_hgss.4bpp");
+const u16 gObjectEventPal_RocketGruntFHGSS[] = INCBIN_U16("graphics/object_events/palettes/rocket_grunt_f_hgss.gbapal");

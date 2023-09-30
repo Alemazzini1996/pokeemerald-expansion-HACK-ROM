@@ -23,6 +23,7 @@
 #include "constants/items.h"
 #include "constants/layouts.h"
 #include "constants/weather.h"
+#include "item.h"
 
 extern const u8 EventScript_RepelWoreOff[];
 extern const u8 EventScript_LureWoreOff[];
@@ -366,6 +367,9 @@ static u16 GetCurrentMapWildMonHeaderId(void)
         if (gWildMonHeaders[i].mapGroup == gSaveBlock1Ptr->location.mapGroup &&
             gWildMonHeaders[i].mapNum == gSaveBlock1Ptr->location.mapNum)
         {
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE101) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE101))
+                i += VarGet(VAR_DAYNIGHT);
             if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ALTERING_CAVE) &&
                 gSaveBlock1Ptr->location.mapNum == MAP_NUM(ALTERING_CAVE))
             {
@@ -423,7 +427,7 @@ static u8 PickWildMonNature(void)
     #endif
     )
     {
-        return GetMonData(&gPlayerParty[0], MON_DATA_PERSONALITY) % NUM_NATURES;
+        return GetMonData(&gPlayerParty[0], MON_DATA_NATURE);
     }
 
     // random nature
@@ -1108,8 +1112,13 @@ static void ApplyFluteEncounterRateMod(u32 *encRate)
 
 static void ApplyCleanseTagEncounterRateMod(u32 *encRate)
 {
-    if (GetMonData(&gPlayerParty[0], MON_DATA_HELD_ITEM) == ITEM_CLEANSE_TAG)
-        *encRate = *encRate * 2 / 3;
+    if (FlagGet(FLAG_CLEANSE_TAG)){
+        if (CheckBagHasItem(ITEM_CLEANSE_TAG, 1)){
+            *encRate = 0;
+            return;
+        }
+        FlagClear(FLAG_CLEANSE_TAG);
+    }
 }
 
 bool8 TryDoDoubleWildBattle(void)

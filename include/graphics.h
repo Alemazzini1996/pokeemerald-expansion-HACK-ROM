@@ -7337,6 +7337,33 @@ extern const u32 gTrainerFrontPic_Leaf[];
 extern const u32 gTrainerFrontPic_RubySapphireBrendan[];
 extern const u32 gTrainerFrontPic_RubySapphireMay[];
 
+// New front sprites
+extern const u32 gTrainerFrontPic_BreederFHGSS[];
+extern const u32 gTrainerPalette_BreederFHGSS[];
+extern const u32 gTrainerFrontPic_LassHGSS[];
+extern const u32 gTrainerPalette_LassHGSS[];
+extern const u32 gTrainerFrontPic_RocketGruntFHGSS[];
+extern const u32 gTrainerPalette_RocketGruntFHGSS[];
+extern const u32 gTrainerFrontPic_BeautyPP[];
+extern const u32 gTrainerPalette_BeautyPP[];
+extern const u32 gTrainerFrontPic_BugCatcherFPP[];
+extern const u32 gTrainerPalette_BugCatcherFPP[];
+extern const u32 gTrainerFrontPic_FirebreatherPP[];
+extern const u32 gTrainerPalette_FirebreatherPP[];
+extern const u32 gTrainerFrontPic_FishermanPP[];
+extern const u32 gTrainerPalette_FishermanPP[];
+extern const u32 gTrainerFrontPic_GuardFPP[];
+extern const u32 gTrainerPalette_GuardFPP[];
+extern const u32 gTrainerFrontPic_GuardMPP[];
+extern const u32 gTrainerPalette_GuardMPP[];
+extern const u32 gTrainerFrontPic_PsychicMPP[];
+extern const u32 gTrainerPalette_PsychicMPP[];
+extern const u32 gTrainerFrontPic_RocketGruntFPP[];
+extern const u32 gTrainerPalette_RocketGruntFPP[];
+extern const u32 gTrainerFrontPic_HexManiacORAS[];
+extern const u32 gTrainerPalette_HexManiacORAS[];
+
+
 extern const u32 gTrainerPalette_Hiker[];
 extern const u32 gTrainerPalette_AquaGruntM[];
 extern const u32 gTrainerPalette_PokemonBreederF[];
@@ -7676,6 +7703,40 @@ extern const u32 gPokedexSearchMenu_Gfx[];
 extern const u32 gPokedexSearchMenuHoenn_Tilemap[];
 extern const u32 gPokedexSearchMenuNational_Tilemap[];
 extern const u16 gPokedexSearchMenu_Pal[];
+// pokedex HGSS
+extern const u16 gPokedexPlusHGSS_Default_Pal[];
+extern const u16 gPokedexPlusHGSS_National_Pal[];
+extern const u16 gPokedexPlusHGSS_MenuSearch_Pal[];
+extern const u16 gPokedexPlusHGSS_SearchResults_Pal[];
+extern const u16 gPokedexPlusHGSS_Default_dark_Pal[];
+extern const u16 gPokedexPlusHGSS_National_dark_Pal[];
+extern const u16 gPokedexPlusHGSS_MenuSearch_dark_Pal[];
+extern const u16 gPokedexPlusHGSS_SearchResults_dark_Pal[];
+extern const u32 gPokedexPlusHGSS_MenuList_Gfx[];
+extern const u32 gPokedexPlusHGSS_MenuList_DECA_Gfx[];
+extern const u32 gPokedexPlusHGSS_Interface_Gfx[];
+extern const u32 gPokedexPlusHGSS_Interface_DECA_Gfx[];
+extern const u32 gPokedexPlusHGSS_Menu_1_Gfx[];
+extern const u32 gPokedexPlusHGSS_Menu_2_Gfx[];
+extern const u32 gPokedexPlusHGSS_Menu_3_Gfx[];
+extern const u32 gPokedexPlusHGSS_MenuSearch_Gfx[];
+extern const u32 gPokedexPlusHGSS_MenuSearch_DECA_Gfx[];
+extern const u32 gPokedexPlusHGSS_StartMenuMain_Tilemap[];
+extern const u32 gPokedexPlusHGSS_StartMenuSearchResults_Tilemap[];
+extern const u32 gPokedexPlusHGSS_ScreenSelectBarSubmenu_Tilemap[];
+extern const u32 gPokedexPlusHGSS_ScreenSelectBarSubmenu_Tilemap_Clear[];
+extern const u32 gPokedexPlusHGSS_ScreenList_Tilemap[];
+extern const u32 gPokedexPlusHGSS_ScreenListUnderlay_Tilemap[];
+extern const u32 gPokedexPlusHGSS_ScreenInfo_Tilemap[];
+extern const u32 gPokedexPlusHGSS_ScreenStats_Tilemap[];
+extern const u32 gPokedexPlusHGSS_ScreenEvolution_Tilemap[];
+extern const u32 gPokedexPlusHGSS_ScreenEvolution_Tilemap_PE[];
+extern const u32 gPokedexPlusHGSS_ScreenForms_Tilemap[];
+extern const u32 gPokedexPlusHGSS_ScreenCry_Tilemap[];
+extern const u32 gPokedexPlusHGSS_ScreenSize_Tilemap[];
+extern const u32 gPokedexPlusHGSS_ScreenSearchHoenn_Tilemap[];
+extern const u32 gPokedexPlusHGSS_ScreenSearchNational_Tilemap[];
+
 
 // berry tag screen
 extern const u32 gBerryCheck_Gfx[];
@@ -8993,6 +9054,21 @@ extern const u32 gItemIconPalette_Tea[];
 extern const u32 gItemIcon_Gem[];
 extern const u32 gItemIconPalette_Ruby[];
 extern const u32 gItemIconPalette_Sapphire[];
+extern const u32 gItemIcon_Lantern[];
+extern const u32 gItemIconPalette_Lantern[];
+extern const u32 gItemIcon_CandyJar[];
+extern const u32 gItemIconPalette_CandyJar[];
+extern const u32 gItemIcon_Axe[];
+extern const u32 gItemIconPalette_Axe[];
+extern const u32 gItemIcon_Pickaxe[];
+extern const u32 gItemIconPalette_Pickaxe[];
+extern const u32 gItemIcon_PowerGlove[];
+extern const u32 gItemIconPalette_PowerGlove[];
+extern const u32 gItemIcon_ScubaGear[];
+extern const u32 gItemIconPalette_ScubaGear[];
+extern const u32 gItemIcon_PicnicBasket[];
+extern const u32 gItemIconPalette_PicnicBasket[];
+
 
 // GEN IX ITEMS
 extern const u32 gItemIcon_AbilityShield[];
@@ -9357,6 +9433,7 @@ extern const u16 gBattleInterface_BallDisplayPal[];
 
 extern const u32 gSwapLineGfx[];
 extern const u32 gSwapLinePal[];
+extern const u32 gSwapLineGfx_RegisteredItemsMenu[];
 
 extern const u32 gBattlePyramidBag_Gfx[];
 extern const u32 gBattlePyramidBag_Pal[];

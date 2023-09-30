@@ -31,12 +31,29 @@ void ItemUseOutOfBattle_FormChange_ConsumedOnUse(u8);
 void ItemUseOutOfBattle_Honey(u8);
 void ItemUseOutOfBattle_CannotUse(u8);
 void ItemUseOutOfBattle_ExpShare(u8);
+void ItemUseOutOfBattle_Fly(u8);
+void ItemUseOutOfBattle_Lantern(u8);
+void ItemUseOutOfBattle_PokeVial(u8);
+void ItemUseOutOfBattle_TownMap(u8);
+void ItemUseOutOfBattle_BoxLink(u8);
 void ItemUseInBattle_BagMenu(u8 taskId);
 void ItemUseInBattle_PartyMenu(u8 taskId);
 void ItemUseInBattle_PartyMenuChooseMove(u8 taskId);
 void Task_UseDigEscapeRopeOnField(u8 taskId);
 u8 CanUseDigOrEscapeRopeOnCurMap(void);
 u8 CheckIfItemIsTMHMOrEvolutionStone(u16 itemId);
+void ItemUseOutOfBattle_PokeBall(u8);
+void ItemUseOutOfBattle_SootSack(u8);
+void ItemUseOutOfBattle_CleanseTag(u8);
+void ItemUseOutOfBattle_TypeChart(u8);
+void ItemUseOutOfBattle_Pokenav(u8);
+void ItemUseOutOfBattle_WailmerSnack(u8);
+void ItemUseOutOfBattle_Axe(u8);
+void ItemUseOutOfBattle_Pickaxe(u8);
+void ItemUseOutOfBattle_ScubaGear(u8);
+void ItemUseOutOfBattle_PowerGlove(u8);
+void ItemUseOutOfBattle_AbilityChanger(u8);
+u16 GetAshCount(void);
 
 enum {
     BALL_THROW_UNABLE_TWO_MONS,

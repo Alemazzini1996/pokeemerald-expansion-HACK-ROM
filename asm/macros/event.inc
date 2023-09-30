@@ -1032,6 +1032,12 @@
 		.byte 1
 	.elseif \id == STR_VAR_3
 		.byte 2
+	.elseif \id == EXTRA_STR_VAR_1
+		.byte 3
+	.elseif \id == EXTRA_STR_VAR_2
+		.byte 4
+	.elseif \id == EXTRA_STR_VAR_3
+		.byte 5
 	.else
 		.byte \id
 	.endif
@@ -1347,7 +1353,7 @@
 	@ The specified id can be used to refer to the sprite again later with turnvobject.
 	.macro createvobject graphicsId:req, id:req, x:req, y:req, elevation=3, direction=DIR_SOUTH
 	.byte 0xaa
-	.byte \graphicsId
+	.2byte \graphicsId
 	.byte \id
 	.2byte \x
 	.2byte \y
@@ -1735,6 +1741,24 @@
 	.2byte \quantity
 	.endm
 
+	.macro showdescription
+	.byte 0xe3
+	.endm
+
+	.macro showitemdesc
+	setvar VAR_0x8009, 0
+	showdescription
+	.endm
+
+	.macro showberrydesc
+	setvar VAR_0x8009, 1
+	showdescription
+	.endm
+
+	.macro hideitemdesc
+	.byte 0xe4
+	.endm
+
 
 @ Supplementary
 
@@ -2017,8 +2041,20 @@
 	setvar VAR_0x8001, \canStopEvo
 	setvar VAR_0x8002, \tryMultiple
 	special TrySpecialOverworldEvo
+	.endm	
+
+	@ Calls a msgbox with a desired mugshot, string and msgbox type.
+	CLEAR_MUGSHOT = TRUE
+	DONT_CLEAR_MUGSHOT = FALSE
+	.macro msgbox_mugshot msgText:req, msgType:req, mugshot:req, clear=CLEAR_MUGSHOT
+	setvar VAR_0x8000, \mugshot
+	callnative DrawMugshot
+	msgbox \msgText, \msgType
+	.if \clear == CLEAR_MUGSHOT
+		callnative ClearMugshot
+	.endif
 	.endm
-	
+
 	.macro ai_vs_ai_battle trainer1:req, trainer2:req
 	setflag B_FLAG_AI_VS_AI_BATTLE
 	setvar VAR_0x8004, \trainer1

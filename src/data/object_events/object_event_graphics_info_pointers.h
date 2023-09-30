@@ -245,6 +245,14 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Giddy;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnusedMauvilleOldMan1;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnusedMauvilleOldMan2;
 
+// New OWs
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GoldItemBall;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MegaStone;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Gamecube;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LassHGSS;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BreederFHGSS;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HexManiacORAS;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RocketGruntFHGSS;
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_BRENDAN_NORMAL] =           &gObjectEventGraphicsInfo_BrendanNormal,
@@ -486,6 +494,13 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_LINK_RS_MAY] =              &gObjectEventGraphicsInfo_RubySapphireMay,
     [OBJ_EVENT_GFX_LUGIA] =                    &gObjectEventGraphicsInfo_Lugia,
     [OBJ_EVENT_GFX_HOOH] =                     &gObjectEventGraphicsInfo_HoOh,
+    [OBJ_EVENT_GFX_GOLD_ITEM_BALL] =           &gObjectEventGraphicsInfo_GoldItemBall, // New OWs
+    [OBJ_EVENT_GFX_MEGA_STONE] =               &gObjectEventGraphicsInfo_MegaStone,
+    [OBJ_EVENT_GFX_GAMECUBE] =                 &gObjectEventGraphicsInfo_Gamecube,
+    [OBJ_EVENT_GFX_LASS_HGSS] =                &gObjectEventGraphicsInfo_LassHGSS,
+    [OBJ_EVENT_GFX_BREEDER_F_HGSS] =           &gObjectEventGraphicsInfo_BreederFHGSS,
+    [OBJ_EVENT_GFX_HEX_MANIAC_ORAS] =          &gObjectEventGraphicsInfo_HexManiacORAS,
+    [OBJ_EVENT_GFX_ROCKET_GRUNT_F_HGSS] =      &gObjectEventGraphicsInfo_RocketGruntFHGSS,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

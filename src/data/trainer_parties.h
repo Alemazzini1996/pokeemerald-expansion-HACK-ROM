@@ -5787,12 +5787,35 @@ static const struct TrainerMon sParty_Carol[] = {
 
 static const struct TrainerMon sParty_Nancy[] = {
     {
-    .lvl = 18,
-    .species = SPECIES_MARILL,
+    .iv = 0,
+    .lvl = 22,
+    .species = SPECIES_PONYTA,
+    .moves = {MOVE_TOXIC_SPIKES, MOVE_STEALTH_ROCK}
     },
     {
-    .lvl = 18,
+    .iv = 0,
+    .lvl = 22,
+    .species = SPECIES_TANGELA,
+    },
+    {
+    .iv = 0,
+    .lvl = 22,
+    .species = SPECIES_ARON,
+    },
+    {
+    .iv = 0,
+    .lvl = 22,
     .species = SPECIES_LOMBRE,
+    },
+    {
+    .iv = 0,
+    .lvl = 30,
+    .species = SPECIES_ELECTRODE,
+    },
+    {
+    .iv = 0,
+    .lvl = 5,
+    .species = SPECIES_MAKUHITA,
     }
 };
 

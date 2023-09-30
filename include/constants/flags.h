@@ -42,16 +42,16 @@
 #define TEMP_FLAGS_END   FLAG_TEMP_1F
 #define NUM_TEMP_FLAGS   (TEMP_FLAGS_END - TEMP_FLAGS_START + 1)
 
-#define FLAG_UNUSED_0x020    0x20 // Unused Flag
-#define FLAG_UNUSED_0x021    0x21 // Unused Flag
-#define FLAG_UNUSED_0x022    0x22 // Unused Flag
-#define FLAG_UNUSED_0x023    0x23 // Unused Flag
-#define FLAG_UNUSED_0x024    0x24 // Unused Flag
-#define FLAG_UNUSED_0x025    0x25 // Unused Flag
-#define FLAG_UNUSED_0x026    0x26 // Unused Flag
-#define FLAG_UNUSED_0x027    0x27 // Unused Flag
-#define FLAG_UNUSED_0x028    0x28 // Unused Flag
-#define FLAG_UNUSED_0x029    0x29 // Unused Flag
+#define FLAG_PARTY_MOVES     0x20 // Used with party menu move relearner
+#define FLAG_EXP_SHARE       0x21 // Used with gen 6 exp share
+#define FLAG_CLEANSE_TAG     0x22 // Used with toggleable infinite repel
+#define FLAG_CAN_RELEARNER   0x23 // Allows player to use Relearn command from party menu
+#define FLAG_CAN_NICKNAME    0x24 // Allows player to use Nickname command from party menu
+#define FLAG_REMOTE_PC       0x25 // Allows player to use remote PC from Pokenav
+#define FLAG_MET_NATURE_CHANGER 0x26 // Checks if nature changer has been spoken to before
+#define FLAG_CAN_WATERFALL   0x27 // Checks if player has been taught how to ride up waterfalls
+#define FLAG_DISABLE_BAG     0x28 // Used to disable item use in battle
+#define FLAG_STOP_TIME       0x29 // Used to stop time when the item header and key item menu pop up
 #define FLAG_UNUSED_0x02A    0x2A // Unused Flag
 #define FLAG_UNUSED_0x02B    0x2B // Unused Flag
 #define FLAG_UNUSED_0x02C    0x2C // Unused Flag
@@ -1218,7 +1218,7 @@
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_EAST_NUGGET                     0x491
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL                  0x492
 
-#define FLAG_UNUSED_0x493                                           0x493 // Unused Flag
+#define FLAG_RUNNING_SHOES_TOGGLE                                   0x493 // Unused Flag
 #define FLAG_UNUSED_0x494                                           0x494 // Unused Flag
 #define FLAG_UNUSED_0x495                                           0x495 // Unused Flag
 #define FLAG_UNUSED_0x496                                           0x496 // Unused Flag

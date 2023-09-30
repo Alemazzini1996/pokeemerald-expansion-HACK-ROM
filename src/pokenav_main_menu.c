@@ -166,6 +166,10 @@ static const struct CompressedSpriteSheet sMenuLeftHeaderSpriteSheets[] =
 
 static const struct CompressedSpriteSheetNoSize sPokenavSubMenuLeftHeaderSpriteSheets[] =
 {
+    // [POKENAV_GFX_ACCESS_PC - POKENAV_GFX_SUBMENUS_START] = {
+    //     .data = gPokenavLeftHeaderParty_Gfx,
+    //     .tag = 1
+    // },
     [POKENAV_GFX_PARTY_MENU - POKENAV_GFX_SUBMENUS_START] = {
         .data = gPokenavLeftHeaderParty_Gfx,
         .tag = 1
@@ -588,8 +592,8 @@ static void InitPokenavMainMenuResources(void)
 
     Pokenav_AllocAndLoadPalettes(sSpinningNavgearPalettes);
     menu->palettes = ~1 & ~(0x10000 << IndexOfSpritePaletteTag(0));
-    spriteId = CreateSprite(&sSpinningPokenavSpriteTemplate, 220, 12, 0);
-    menu->spinningPokenav = &gSprites[spriteId];
+    // spriteId = CreateSprite(&sSpinningPokenavSpriteTemplate, 220, 12, 0);
+    // menu->spinningPokenav = &gSprites[spriteId];
 }
 
 static void CleanupPokenavMainMenuResources(void)

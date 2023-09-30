@@ -24,6 +24,7 @@
 #include "main.h"
 #include "trainer_hill.h"
 #include "constants/rgb.h"
+#include "event_data.h"
 
 static void VBlankIntr(void);
 static void HBlankIntr(void);
@@ -82,6 +83,7 @@ static void InitMainCallbacks(void);
 static void CallCallbacks(void);
 static void SeedRngWithRtc(void);
 static void ReadKeys(void);
+static void IterateRTC(void);
 void InitIntrHandlers(void);
 static void WaitForVBlank(void);
 void EnableVCountIntrAtLine150(void);
@@ -136,6 +138,7 @@ void AgbMain()
 
 void AgbMainLoop(void)
 {
+    int advanceRTCCounter;
     for (;;)
     {
         ReadKeys();
@@ -171,9 +174,20 @@ void AgbMainLoop(void)
         }
 
         PlayTimeCounter_Update();
+        if(advanceRTCCounter >= 60 && !FlagGet(FLAG_STOP_TIME))
+        {
+            IterateRTC();
+            advanceRTCCounter = 0;
+        }
+        advanceRTCCounter++;
         MapMusicMain();
         WaitForVBlank();
     }
+}
+
+static void IterateRTC(void)
+{
+    AdvanceRealtimeClock(0, 1);
 }
 
 static void UpdateLinkAndCallCallbacks(void)
@@ -293,6 +307,7 @@ static void ReadKeys(void)
 
         if (JOY_HELD(L_BUTTON))
             gMain.heldKeys |= A_BUTTON;
+            gMain.newKeys ^= A_BUTTON;
     }
 
     if (JOY_NEW(gMain.watchedKeysMask))

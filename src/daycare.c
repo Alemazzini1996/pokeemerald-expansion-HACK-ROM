@@ -25,6 +25,7 @@
 #include "constants/hold_effects.h"
 #include "constants/moves.h"
 #include "constants/region_map_sections.h"
+#include "battle_setup.h"
 
 extern const struct Evolution gEvolutionTable[][EVOS_PER_MON];
 
@@ -320,7 +321,7 @@ static u16 TakeSelectedPokemonFromDaycare(struct DaycareMon *daycareMon)
         species = newSpecies;
     }
 
-    if (GetMonData(&pokemon, MON_DATA_LEVEL) != MAX_LEVEL)
+    if (GetMonData(&pokemon, MON_DATA_LEVEL) != MAX_LEVEL && !levelCapped(GetMonData(&pokemon, MON_DATA_LEVEL)))
     {
         experience = GetMonData(&pokemon, MON_DATA_EXP) + daycareMon->steps;
         SetMonData(&pokemon, MON_DATA_EXP, &experience);
@@ -524,7 +525,7 @@ static void _TriggerPendingDaycareEgg(struct DayCare *daycare)
     // inherit nature
     else
     {
-        u8 wantedNature = GetNatureFromPersonality(GetBoxMonData(&daycare->mons[parent].mon, MON_DATA_PERSONALITY, NULL));
+        u8 wantedNature = GetBoxMonData(&daycare->mons[parent].mon, MON_DATA_NATURE, NULL);
         u32 personality;
 
         do
@@ -593,7 +594,7 @@ static void InheritIVs(struct Pokemon *egg, struct DayCare *daycare)
     u8 howManyIVs = 3;
 
     if (motherItem == ITEM_DESTINY_KNOT || fatherItem == ITEM_DESTINY_KNOT)
-        howManyIVs = 5;
+        howManyIVs = 6;
 
     // Initialize a list of IV indices.
     for (i = 0; i < NUM_STATS; i++)
@@ -645,10 +646,26 @@ static void InheritIVs(struct Pokemon *egg, struct DayCare *daycare)
         #endif
     }
 
-    // Determine which parent each of the selected IVs should inherit from.
-    for (i = start; i < howManyIVs; i++)
+    // Inherit IVs only from parent holding Destiny Knot
+    if (motherItem == ITEM_DESTINY_KNOT && fatherItem != ITEM_DESTINY_KNOT)
     {
-        whichParents[i] = Random() % DAYCARE_MON_COUNT;
+        for (i = start; i < howManyIVs; i++)
+            whichParents[i] = 0;
+    }
+
+    else if (fatherItem == ITEM_DESTINY_KNOT && fatherItem != ITEM_DESTINY_KNOT)
+    {
+        for (i = start; i < howManyIVs; i++)
+            whichParents[i] = 1;
+    }
+
+    else
+    {
+        // Determine which parent each of the selected IVs should inherit from.
+        for (i = start; i < howManyIVs; i++)
+        {
+            whichParents[i] = Random() % DAYCARE_MON_COUNT;
+        }
     }
 
     // Set each of inherited IVs on the egg mon.
@@ -718,26 +735,11 @@ static void InheritAbility(struct Pokemon *egg, struct BoxPokemon *father, struc
     u8 motherSpecies = GetBoxMonData(mother, MON_DATA_SPECIES);
     u8 inheritAbility = motherAbility;
 
+    // Always inherit parent ability
     if (motherSpecies == SPECIES_DITTO)
-    #if P_ABILITY_INHERITANCE < GEN_6
-        return;
-    #else
         inheritAbility = fatherAbility;
-    #endif
 
-    if (inheritAbility < 2 && (Random() % 10 < 8))
-    {
-        SetMonData(egg, MON_DATA_ABILITY_NUM, &inheritAbility);
-    }
-#if P_ABILITY_INHERITANCE < GEN_6
-    else if (Random() % 10 < 8)
-#else
-    else if (Random() % 10 < 6)
-#endif
-    {
-        // Hidden Abilities have a different chance of being passed down
-        SetMonData(egg, MON_DATA_ABILITY_NUM, &inheritAbility);
-    }
+    SetMonData(egg, MON_DATA_ABILITY_NUM, &inheritAbility);
 }
 
 // Counts the number of egg moves a pokemon learns and stores the moves in
@@ -770,7 +772,63 @@ static u8 GetEggMoves(struct Pokemon *pokemon, u16 *eggMoves)
         numEggMoves++;
     }
 
-    return numEggMoves;
+    return 0; // Remove egg moves
+}
+u8 GetEggMovesSpecies(u16 species, u16 *eggMoves)
+{
+    u16 eggMoveIdx;
+    u16 numEggMoves;
+    u16 i;
+
+    numEggMoves = 0;
+    eggMoveIdx = 0;
+    for (i = 0; i < ARRAY_COUNT(gEggMoves) - 1; i++)
+    {
+        if (gEggMoves[i] == species + EGG_MOVES_SPECIES_OFFSET)
+        {
+            eggMoveIdx = i + 1;
+            break;
+        }
+    }
+
+    for (i = 0; i < EGG_MOVES_ARRAY_COUNT; i++)
+    {
+        if (gEggMoves[eggMoveIdx + i] > EGG_MOVES_SPECIES_OFFSET)
+        {
+            // TODO: the curly braces around this if statement are required for a matching build.
+            break;
+        }
+
+        eggMoves[i] = gEggMoves[eggMoveIdx + i];
+        numEggMoves++;
+    }
+
+    return 0; // Remove egg moves
+}
+bool8 SpeciesCanLearnEggMove(u16 species, u16 move) //Move search PokedexPlus HGSS_Ui
+{
+    u16 eggMoveIdx;
+    u16 i;
+    eggMoveIdx = 0;
+    return FALSE; // Remove egg moves
+    for (i = 0; i < ARRAY_COUNT(gEggMoves) - 1; i++)
+    {
+        if (gEggMoves[i] == species + EGG_MOVES_SPECIES_OFFSET)
+        {
+            eggMoveIdx = i + 1;
+            break;
+        }
+    }
+
+    for (i = 0; i < EGG_MOVES_ARRAY_COUNT; i++)
+    {
+        if (gEggMoves[eggMoveIdx + i] > EGG_MOVES_SPECIES_OFFSET)
+            return FALSE;
+
+        if (move == gEggMoves[eggMoveIdx + i])
+            return TRUE;
+    }
+    return FALSE;
 }
 
 static void BuildEggMoveset(struct Pokemon *egg, struct BoxPokemon *father, struct BoxPokemon *mother)
