@@ -2754,8 +2754,8 @@
     {
       "id": "LAYOUT_MOSSDEEP_CITY_SPACE_CENTER_2F",
       "name": "MossdeepCity_SpaceCenter_2F_Layout",
-      "width": 16,
-      "height": 10,
+      "width": 23,
+      "height": 15,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/MossdeepCity_SpaceCenter_2F/border.bin",
@@ -4035,9 +4035,9 @@
       "id": "LAYOUT_BIRTH_ISLAND_EXTERIOR",
       "name": "BirthIsland_Exterior_Layout",
       "width": 30,
-      "height": 30,
+      "height": 34,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Dewford",
+      "secondary_tileset": "gTileset_Mossdeep",
       "border_filepath": "data/layouts/BirthIsland_Exterior/border.bin",
       "blockdata_filepath": "data/layouts/BirthIsland_Exterior/map.bin"
     },
