@@ -18,14 +18,14 @@
   ],
   "warp_events": [
     {
-      "x": 20,
+      "x": 11,
       "y": 32,
       "elevation": 0,
       "dest_map": "MAP_MOSSDEEP_CITY_SPACE_CENTER_2F",
       "dest_warp_id": "1"
     },
     {
-      "x": 20,
+      "x": 11,
       "y": 8,
       "elevation": 0,
       "dest_map": "MAP_BIRTH_ISLAND_EXTERIOR",

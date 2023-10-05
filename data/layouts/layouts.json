@@ -4414,8 +4414,8 @@
     {
       "id": "LAYOUT_SPACE_ROCKET",
       "name": "Space_Rocket_Layout",
-      "width": 41,
-      "height": 35,
+      "width": 23,
+      "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_SpaceRocket",
       "border_filepath": "data/layouts/Space_Rocket/border.bin",
