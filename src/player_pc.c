@@ -248,7 +248,7 @@ static const struct ItemSlot sNewGamePCItems[] =
     { ITEM_LEVEL_BALL, 99 },
     { ITEM_TOXIC_ORB, 1 },
     { ITEM_FLAME_ORB, 1 },
-    { ITEM_BICYCLE, 1 },
+    { ITEM_ACRO_BIKE, 1 },
     { ITEM_TM13, 1 },
     { ITEM_TM26, 1 },
     { ITEM_EXP_SHARE, 1 },

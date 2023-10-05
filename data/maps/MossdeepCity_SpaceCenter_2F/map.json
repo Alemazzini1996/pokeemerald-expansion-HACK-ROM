@@ -183,7 +183,7 @@
       "x": 3,
       "y": 1,
       "elevation": 0,
-      "dest_map": "MAP_BIRTH_ISLAND_EXTERIOR",
+      "dest_map": "MAP_SPACE_ROCKET",
       "dest_warp_id": "0"
     }
   ],

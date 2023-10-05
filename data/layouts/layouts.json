@@ -4410,6 +4410,16 @@
       "secondary_tileset": "gTileset_MysteryEventsHouse",
       "border_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/border.bin",
       "blockdata_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/map.bin"
+    },
+    {
+      "id": "LAYOUT_SPACE_ROCKET",
+      "name": "Space_Rocket_Layout",
+      "width": 41,
+      "height": 35,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SpaceRocket",
+      "border_filepath": "data/layouts/Space_Rocket/border.bin",
+      "blockdata_filepath": "data/layouts/Space_Rocket/map.bin"
     }
   ]
 }
