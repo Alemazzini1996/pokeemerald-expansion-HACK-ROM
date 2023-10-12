@@ -896,7 +896,7 @@ static void HandleInputChooseMove(u32 battler)
             MoveSelectionDisplayMoveType(battler);
         }
     }
-    else if (JOY_NEW(START_BUTTON) && !(CanMegaEvolve(battler))) //AdditionalBattleInfo only displays when mega evolving isn't possible, so they don't conflict
+    else if (JOY_NEW(START_BUTTON) && !(CanMegaEvolve(battler)) && !(gBattleStruct->zmove.viable)) //AdditionalBattleInfo only displays when mega evolving isn't possible, so they don't conflict
     {
         sDescriptionSubmenu = TRUE;
         MoveSelectionDisplayMoveDescription(battler);
