@@ -210,3 +210,18 @@ const u16 gMetatileAttributes_UnionRoom[] = INCBIN_U16("data/tilesets/secondary/
 
 const u16 gMetatiles_SpaceRocket[] = INCBIN_U16("data/tilesets/secondary/space_rocket/metatiles.bin");
 const u16 gMetatileAttributes_SpaceRocket[] = INCBIN_U16("data/tilesets/secondary/space_rocket/metatile_attributes.bin");
+
+const u16 gMetatiles_GeneralSnow[] = INCBIN_U16("data/tilesets/primary/general_snow/metatiles.bin");
+const u16 gMetatileAttributes_GeneralSnow[] = INCBIN_U16("data/tilesets/primary/general_snow/metatile_attributes.bin");
+
+const u16 gMetatiles_GeneralLeoB[] = INCBIN_U16("data/tilesets/primary/general_leo_b/metatiles.bin");
+const u16 gMetatileAttributes_GeneralLeoB[] = INCBIN_U16("data/tilesets/primary/general_leo_b/metatile_attributes.bin");
+
+const u16 gMetatiles_PetalburgLeoB[] = INCBIN_U16("data/tilesets/secondary/petalburg_leo_b/metatiles.bin");
+const u16 gMetatileAttributes_PetalburgLeoB[] = INCBIN_U16("data/tilesets/secondary/petalburg_leo_b/metatile_attributes.bin");
+
+const u16 gMetatiles_GeneralLeoBSnow[] = INCBIN_U16("data/tilesets/primary/general_leo_bsnow/metatiles.bin");
+const u16 gMetatileAttributes_GeneralLeoBSnow[] = INCBIN_U16("data/tilesets/primary/general_leo_bsnow/metatile_attributes.bin");
+
+const u16 gMetatiles_PetalburgLeoBSnow[] = INCBIN_U16("data/tilesets/secondary/petalburg_leo_bsnow/metatiles.bin");
+const u16 gMetatileAttributes_PetalburgLeoBSnow[] = INCBIN_U16("data/tilesets/secondary/petalburg_leo_bsnow/metatile_attributes.bin");

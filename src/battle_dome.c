@@ -1665,13 +1665,13 @@ static const u8 sTourneyTreePokeballCoords[DOME_TOURNAMENT_TRAINERS_COUNT + DOME
     {.tile = LINE_V_L,           .y =  9, .x = 17}, \
     {.tile = LINE_V_L,           .y = 10, .x = 17}, \
     {.tile = LINE_V_L_HALF_LOGO, .y = 11, .x = 17},
- 
+
 #define LINESECTION_SEMIFINAL_BOTTOM_RIGHT \
     {.tile = LINE_V_L_LOGO4, .y = 14, .x = 17}, \
     {.tile = LINE_V_L_LOGO3, .y = 13, .x = 17}, \
     {.tile = LINE_V_L_LOGO2, .y = 12, .x = 17}, \
     {.tile = LINE_V_L_LOGO1, .y = 11, .x = 17},
- 
+
 #define LINESECTION_FINAL_LEFT \
     {.tile = LINE_H_LOGO1, .y = 11, .x = 13}, \
     {.tile = LINE_H_LOGO2, .y = 11, .x = 14},
@@ -2503,8 +2503,15 @@ static void InitDomeTrainers(void)
 
 #define CALC_STAT(base, statIndex)                                                          \
 {                                                                                           \
-    u8 baseStat = gSpeciesInfo[species].base;                                                 \
-    stats[statIndex] = (((2 * baseStat + ivs + evs[statIndex] / 4) * level) / 100) + 5;     \
+    u8 baseStat = gSpeciesInfo[species].base;                                               \
+    if (!FlagGet(FLAG_EVS_DISABLED) && !FlagGet(FLAG_IVS_DISABLED))                         \
+        stats[statIndex] = (((2 * baseStat + ivs + evs[statIndex] / 4) * level) / 100) + 5; \
+    else if (FlagGet(FLAG_EVS_DISABLED) && !FlagGet(FLAG_IVS_DISABLED))                     \
+        stats[statIndex] = (((2 * baseStat + ivs) * level) / 100) + 5;                      \
+    else if (!FlagGet(FLAG_EVS_DISABLED) && FlagGet(FLAG_IVS_DISABLED))                     \
+        stats[statIndex] = (((2 * baseStat + evs[statIndex] / 4) * level) / 100) + 5;       \
+    else                                                                                    \
+        stats[statIndex] = (((2 * baseStat) * level) / 100) + 5;                            \
     stats[statIndex] = (u8) ModifyStatByNature(nature, stats[statIndex], statIndex);        \
 }
 

@@ -543,6 +543,7 @@ extern const u8 gText_SearchCompleted[];
 extern const u8 gText_NoMatchingPkmnWereFound[];
 extern const u8 gText_SelectorArrow[];
 //PokedexPlus HGSS_Ui
+#if POKEDEX_PLUS_HGSS == TRUE
 extern const u8 gText_Stats_Buttons[];
 extern const u8 gText_Stats_Buttons_Decapped[];
 extern const u8 gText_Stats_HP[];
@@ -622,6 +623,7 @@ extern const u8 gText_EVO_PreEvo_PE_Mega[];
 extern const u8 gText_EVO_FRIENDSHIP[];
 extern const u8 gText_EVO_FRIENDSHIP_DAY[];
 extern const u8 gText_EVO_FRIENDSHIP_NIGHT[];
+extern const u8 gText_EVO_FRIENDSHIP_MOVE_TYPE[];
 extern const u8 gText_EVO_LEVEL[];
 extern const u8 gText_EVO_TRADE[];
 extern const u8 gText_EVO_TRADE_ITEM[];
@@ -651,6 +653,15 @@ extern const u8 gText_EVO_SPECIFIC_MON_IN_PARTY[];
 extern const u8 gText_EVO_LEVEL_DARK_TYPE_MON_IN_PARTY[];
 extern const u8 gText_EVO_TRADE_SPECIFIC_MON[];
 extern const u8 gText_EVO_SPECIFIC_MAP[];
+extern const u8 gText_EVO_LEVEL_NATURE_AMPED[];
+extern const u8 gText_EVO_LEVEL_NATURE_LOW_KEY[];
+extern const u8 gText_EVO_CRITICAL_HITS[];
+extern const u8 gText_EVO_SCRIPT_TRIGGER_DMG[];
+extern const u8 gText_EVO_DARK_SCROLL[];
+extern const u8 gText_EVO_WATER_SCROLL[];
+extern const u8 gText_EVO_ITEM_NIGHT[];
+extern const u8 gText_EVO_ITEM_DAY[];
+extern const u8 gText_EVO_ITEM_HOLD[];
 extern const u8 gText_EVO_UNKNOWN[];
 extern const u8 gText_EVO_NONE[];
 
@@ -659,7 +670,7 @@ extern const u8 gText_FORMS_Buttons_Decapped_PE[];
 extern const u8 gText_FORMS_Buttons_Submenu_PE[];
 extern const u8 gText_FORMS_Buttons_Submenu_Decapped_PE[];
 extern const u8 gText_FORMS_NONE[];
-
+#endif
 
 // birch dex rating text
 extern const u8 gBirchDexRatingText_LessThan10[];
@@ -3228,5 +3239,15 @@ extern const u8 gMenuText_Move[];
 extern const u8 gText_MoveItemWhere[];
 extern const u8 gText_XsYAnd[];
 extern const u8 gText_XsYWereSwapped[];
+
+extern const u8 gText_BasePointsResetToZero[];
+
+// frlg_tm_case_port
+extern const u8 gText_TMCase[];
+extern const u8 gText_Close[];
+extern const u8 gText_TMCaseWillBePutAway[];
+extern const u8 gText_FontSmall[];
+extern const u8 gText_FontShort[];
+extern const u8 gText_TMCase_Blue[];
 
 #endif // GUARD_STRINGS_H

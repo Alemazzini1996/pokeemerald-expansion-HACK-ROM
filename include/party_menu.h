@@ -50,9 +50,11 @@ void LoadPartyMenuAilmentGfx(void);
 void CB2_ShowPartyMenuForItemUse(void);
 void ItemUseCB_BattleScript(u8 taskId, TaskFunc task);
 void ItemUseCB_BattleChooseMove(u8 taskId, TaskFunc task);
+void CB2_ShowPartyMenuForItemUseTMCase(void);
 void ItemUseCB_Medicine(u8 taskId, TaskFunc task);
 void ItemUseCB_AbilityCapsule(u8 taskId, TaskFunc task);
 void ItemUseCB_AbilityPatch(u8 taskId, TaskFunc task);
+void ItemUseCB_ResetEVs(u8 taskId, TaskFunc task);
 void ItemUseCB_ReduceEV(u8 taskId, TaskFunc task);
 void ItemUseCB_PPRecovery(u8 taskId, TaskFunc task);
 void ItemUseCB_PPUp(u8 taskId, TaskFunc task);
@@ -100,11 +102,5 @@ void MoveDeleterChooseMoveToForget(void);
 void CB2_ReturnToPartyMenuFromSummaryScreen(void);
 void ItemUseCB_PokeBall(u8 taskId, TaskFunc task);
 void ItemUseCB_AbilityChanger(u8 taskId, TaskFunc task);
-
-#ifndef BATTLE_ENGINE
-bool8 CanLearnTutorMove(u16, u8);
-#else
-u16 GetTMHMMoves(u16 position);
-#endif
 
 #endif // GUARD_PARTY_MENU_H

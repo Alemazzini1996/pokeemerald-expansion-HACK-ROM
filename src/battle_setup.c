@@ -374,7 +374,9 @@ static void Task_BattleStart(u8 taskId)
 
 static void CreateBattleStartTask(u8 transition, u16 song)
 {
-    u8 taskId = CreateTask(Task_BattleStart, 1);
+    u8 taskId;
+    FlagSet(FLAG_STOP_TIME);
+    taskId = CreateTask(Task_BattleStart, 1);
 
     gTasks[taskId].tTransition = transition;
     PlayMapChosenOrBattleBGM(song);
@@ -1291,7 +1293,7 @@ static void SetBattledTrainersFlags(void)
     FlagSet(GetTrainerAFlag());
 }
 
-static void SetBattledTrainerFlag(void)
+static void UNUSED SetBattledTrainerFlag(void)
 {
     FlagSet(GetTrainerAFlag());
 }
@@ -1948,7 +1950,9 @@ bool8 levelCapped(u8 level)
     u8 levelCap = 0;
     u16 nextLeader, i;
     const struct TrainerMon *partyData;
-    if (!FlagGet(FLAG_BADGE01_GET))
+    if (FlagGet(FLAG_IS_CHAMPION) || FlagGet(FLAG_NO_LEVEL_CAP))
+        return FALSE;
+    else if (!FlagGet(FLAG_BADGE01_GET))
         nextLeader = TRAINER_ROXANNE_1;
     else if (!FlagGet(FLAG_BADGE02_GET))
         nextLeader = TRAINER_BRAWLY_1;

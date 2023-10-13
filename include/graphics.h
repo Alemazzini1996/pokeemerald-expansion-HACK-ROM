@@ -7704,6 +7704,7 @@ extern const u32 gPokedexSearchMenuHoenn_Tilemap[];
 extern const u32 gPokedexSearchMenuNational_Tilemap[];
 extern const u16 gPokedexSearchMenu_Pal[];
 // pokedex HGSS
+#if POKEDEX_PLUS_HGSS == TRUE
 extern const u16 gPokedexPlusHGSS_Default_Pal[];
 extern const u16 gPokedexPlusHGSS_National_Pal[];
 extern const u16 gPokedexPlusHGSS_MenuSearch_Pal[];
@@ -7736,7 +7737,7 @@ extern const u32 gPokedexPlusHGSS_ScreenCry_Tilemap[];
 extern const u32 gPokedexPlusHGSS_ScreenSize_Tilemap[];
 extern const u32 gPokedexPlusHGSS_ScreenSearchHoenn_Tilemap[];
 extern const u32 gPokedexPlusHGSS_ScreenSearchNational_Tilemap[];
-
+#endif
 
 // berry tag screen
 extern const u32 gBerryCheck_Gfx[];
@@ -10737,5 +10738,17 @@ extern const u8 gMailTilemap_Retro[];
 
 extern const u8 gMonMarkingsMenu_Gfx[];
 extern const u16 gMonMarkingsMenu_Pal[];
+
+// frlg_tm_case_port
+extern const u32 gUnknown_8E845D8[];
+extern const u32 gUnknown_8E84A24[];
+extern const u32 gUnknown_8E84B70[];
+extern const u32 gUnknown_8E84CB0[];
+extern const u32 gUnknown_8E84D20[];
+extern const u32 gTMCase_TMSpriteGfx[];
+extern const u32 gUnknown_8E84F20[];
+extern const u32 gUnknown_8E85068[];
+extern const u8 gUnknown_8E99118[];
+extern const u16 gTMCaseMainWindowPalette[];
 
 #endif //GUARD_GRAPHICS_H

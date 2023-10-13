@@ -838,3 +838,58 @@ const struct Tileset gTileset_SpaceRocket =
     .metatileAttributes = gMetatileAttributes_SpaceRocket,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_GeneralSnow =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_GeneralSnow,
+    .palettes = gTilesetPalettes_GeneralSnow,
+    .metatiles = gMetatiles_GeneralSnow,
+    .metatileAttributes = gMetatileAttributes_GeneralSnow,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_GeneralLeoB =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_GeneralLeoB,
+    .palettes = gTilesetPalettes_GeneralLeoB,
+    .metatiles = gMetatiles_GeneralLeoB,
+    .metatileAttributes = gMetatileAttributes_GeneralLeoB,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_PetalburgLeoB =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_PetalburgLeoB,
+    .palettes = gTilesetPalettes_PetalburgLeoB,
+    .metatiles = gMetatiles_PetalburgLeoB,
+    .metatileAttributes = gMetatileAttributes_PetalburgLeoB,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_GeneralLeoBSnow =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_GeneralLeoBSnow,
+    .palettes = gTilesetPalettes_GeneralLeoBSnow,
+    .metatiles = gMetatiles_GeneralLeoBSnow,
+    .metatileAttributes = gMetatileAttributes_GeneralLeoBSnow,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_PetalburgLeoBSnow =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_PetalburgLeoBSnow,
+    .palettes = gTilesetPalettes_PetalburgLeoBSnow,
+    .metatiles = gMetatiles_PetalburgLeoBSnow,
+    .metatileAttributes = gMetatileAttributes_PetalburgLeoBSnow,
+    .callback = NULL,
+};

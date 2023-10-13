@@ -49,11 +49,23 @@
 #include "constants/layouts.h"
 #include "constants/moves.h"
 #include "constants/songs.h"
+#include "constants/species.h"
 #include "constants/trainers.h"
 #include "constants/union_room.h"
 #include "constants/weather.h"
 #include "day_night.h"
 #include "constants/day_night.h"
+
+#define DAY_EVO_HOUR_BEGIN       12
+#define DAY_EVO_HOUR_END         HOURS_PER_DAY
+
+#define DUSK_EVO_HOUR_BEGIN      17
+#define DUSK_EVO_HOUR_END        18
+
+#define NIGHT_EVO_HOUR_BEGIN     0
+#define NIGHT_EVO_HOUR_END       12
+
+#define FRIENDSHIP_EVO_THRESHOLD 220
 
 struct SpeciesItem
 {
@@ -3501,7 +3513,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
         {
             u32 totalRerolls = 0;
             if (CheckBagHasItem(ITEM_SHINY_CHARM, 1))
-                totalRerolls += I_SHINY_CHARM_REROLLS;
+                totalRerolls += I_SHINY_CHARM_ADDITIONAL_ROLLS;
             if (LURE_STEP_COUNT != 0)
                 totalRerolls += 1;
 
@@ -4109,14 +4121,23 @@ static u16 CalculateBoxMonChecksum(struct BoxPokemon *boxMon)
 #define CALC_FRIENDSHIP_BOOST()
 #endif
 
-#define CALC_STAT(base, iv, ev, statIndex, field)               \
-{                                                               \
-    u8 baseStat = gSpeciesInfo[species].base;                   \
-    s32 n = (((2 * baseStat + iv + ev / 4) * level) / 100) + 5; \
-    u8 nature = GetMonData(mon, MON_DATA_NATURE);                                \
-    n = ModifyStatByNature(nature, n, statIndex);               \
-    CALC_FRIENDSHIP_BOOST()                                     \
-    SetMonData(mon, field, &n);                                 \
+#define CALC_STAT(base, iv, ev, statIndex, field)                       \
+{                                                                       \
+    u8 baseStat = gSpeciesInfo[species].base;                           \
+    s32 n;                                                              \
+    u8 nature;                                                          \
+    if (!FlagGet(FLAG_EVS_DISABLED) && !FlagGet(FLAG_IVS_DISABLED))     \
+        n = (((2 * baseStat + iv + ev / 4) * level) / 100) + 5;         \
+    else if (FlagGet(FLAG_EVS_DISABLED) && !FlagGet(FLAG_IVS_DISABLED)) \
+        n = (((2 * baseStat + iv) * level) / 100) + 5;                  \
+    else if (!FlagGet(FLAG_EVS_DISABLED) && FlagGet(FLAG_IVS_DISABLED)) \
+        n = (((2 * baseStat + ev / 4) * level) / 100) + 5;              \
+    else                                                                \
+        n = (((2 * baseStat) * level) / 100) + 5;                       \
+    nature = GetMonData(mon, MON_DATA_NATURE);                          \
+    n = ModifyStatByNature(nature, n, statIndex);                       \
+    CALC_FRIENDSHIP_BOOST()                                             \
+    SetMonData(mon, field, &n);                                         \
 }
 
 void CalculateMonStats(struct Pokemon *mon)
@@ -6021,7 +6042,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                             dataSigned += temp2;
                             SetMonData(mon, sGetMonDataIVConstants[temp1], &dataSigned);
                         }
-                        else // Decreasing EV (HP or Atk)
+                        else if (evChange < 0) // Decreasing EV (HP or Atk)
                         {
                             dataSigned = GetMonData(mon, sGetMonDataEVConstants[temp1], NULL);
                             if (dataSigned == 0)
@@ -6039,6 +6060,13 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                             if (dataSigned < 0)
                                 dataSigned = 0;
                             SetMonData(mon, sGetMonDataEVConstants[temp1], &dataSigned);
+                        }
+                        else // Reset EV (HP or Atk)
+                        {
+                            if (dataSigned == 0)
+                                break;
+
+                            dataSigned = 0;
                         }
 
                         // Update EVs and stats
@@ -6192,7 +6220,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                             dataSigned += temp2;
                             SetMonData(mon, sGetMonDataIVConstants[temp1 + 2], &dataSigned);
                         }
-                        else // Decreasing EV
+                        else if (evChange < 0) // Decreasing EV
                         {
                             dataSigned = GetMonData(mon, sGetMonDataEVConstants[temp1 + 2], NULL);
                             if (dataSigned == 0)
@@ -6210,6 +6238,13 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                             if (dataSigned < 0)
                                 dataSigned = 0;
                             SetMonData(mon, sGetMonDataEVConstants[temp1 + 2], &dataSigned);
+                        }
+                        else // Reset EV
+                        {
+                            if (dataSigned == 0)
+                                break;
+
+                            dataSigned = 0;
                         }
 
                         // Update EVs and stats
@@ -6539,50 +6574,50 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
             switch (gEvolutionTable[species][i].method)
             {
             case EVO_FRIENDSHIP:
-                if (friendship >= 220)
+                if (friendship >= FRIENDSHIP_EVO_THRESHOLD)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_FRIENDSHIP_DAY:
                 RtcCalcLocalTime();
-                if (GetCurrentTimeOfDay() != TIME_NIGHT && friendship >= 220)
+                if (gLocalTime.hours >= DAY_EVO_HOUR_BEGIN && gLocalTime.hours < DAY_EVO_HOUR_END && friendship >= FRIENDSHIP_EVO_THRESHOLD)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_LEVEL_DAY:
                 RtcCalcLocalTime();
-                if (gLocalTime.hours >= 12 && gLocalTime.hours < 24 && gEvolutionTable[species][i].param <= level)
+                if (gLocalTime.hours >= DAY_EVO_HOUR_BEGIN && gLocalTime.hours < DAY_EVO_HOUR_END && gEvolutionTable[species][i].param <= level)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_FRIENDSHIP_NIGHT:
                 RtcCalcLocalTime();
-                if (GetCurrentTimeOfDay() == TIME_NIGHT && friendship >= 220)
+                if (gLocalTime.hours >= NIGHT_EVO_HOUR_BEGIN && gLocalTime.hours < NIGHT_EVO_HOUR_END && friendship >= FRIENDSHIP_EVO_THRESHOLD)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_LEVEL_NIGHT:
                 RtcCalcLocalTime();
-                if (gLocalTime.hours >= 0 && gLocalTime.hours < 12 && gEvolutionTable[species][i].param <= level)
+                if (gLocalTime.hours >= NIGHT_EVO_HOUR_BEGIN && gLocalTime.hours < NIGHT_EVO_HOUR_END && gEvolutionTable[species][i].param <= level)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_ITEM_HOLD_NIGHT:
                 RtcCalcLocalTime();
-                if (gLocalTime.hours >= 0 && gLocalTime.hours < 12 && heldItem == gEvolutionTable[species][i].param)
+                if (gLocalTime.hours >= NIGHT_EVO_HOUR_BEGIN && gLocalTime.hours < NIGHT_EVO_HOUR_END && heldItem == gEvolutionTable[species][i].param)
                 {
-                    heldItem = 0;
+                    heldItem = ITEM_NONE;
                     SetMonData(mon, MON_DATA_HELD_ITEM, &heldItem);
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 }
                 break;
             case EVO_ITEM_HOLD_DAY:
                 RtcCalcLocalTime();
-                if (gLocalTime.hours >= 12 && gLocalTime.hours < 24 && heldItem == gEvolutionTable[species][i].param)
+                if (gLocalTime.hours >= DAY_EVO_HOUR_BEGIN && gLocalTime.hours < DAY_EVO_HOUR_END && heldItem == gEvolutionTable[species][i].param)
                 {
-                    heldItem = 0;
+                    heldItem = ITEM_NONE;
                     SetMonData(mon, MON_DATA_HELD_ITEM, &heldItem);
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 }
                 break;
             case EVO_LEVEL_DUSK:
                 RtcCalcLocalTime();
-                if (gLocalTime.hours >= 17 && gLocalTime.hours < 18 && gEvolutionTable[species][i].param <= level)
+                if (gLocalTime.hours >= DUSK_EVO_HOUR_BEGIN && gLocalTime.hours < DUSK_EVO_HOUR_END && gEvolutionTable[species][i].param <= level)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_LEVEL:
@@ -6633,7 +6668,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_FRIENDSHIP_MOVE_TYPE:
-                if (friendship >= 220)
+                if (friendship >= FRIENDSHIP_EVO_THRESHOLD)
                 {
                     for (j = 0; j < MAX_MON_MOVES; j++)
                     {
@@ -6792,12 +6827,12 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                 break;
             case EVO_ITEM_NIGHT:
                 RtcCalcLocalTime();
-                if (gLocalTime.hours >= 0 && gLocalTime.hours < 12 && gEvolutionTable[species][i].param == evolutionItem)
+                if (gLocalTime.hours >= NIGHT_EVO_HOUR_BEGIN && gLocalTime.hours < NIGHT_EVO_HOUR_END && gEvolutionTable[species][i].param == evolutionItem)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_ITEM_DAY:
                 RtcCalcLocalTime();
-                if (gLocalTime.hours >= 12 && gLocalTime.hours < 24 && gEvolutionTable[species][i].param == evolutionItem)
+                if (gLocalTime.hours >= DAY_EVO_HOUR_BEGIN && gLocalTime.hours < DAY_EVO_HOUR_END && gEvolutionTable[species][i].param == evolutionItem)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             }
@@ -7701,7 +7736,122 @@ u16 GetBattleBGM(void)
         }
     }
     else
-        return MUS_VS_WILD;
+    {
+        switch (GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL))
+        {
+        case SPECIES_ARTICUNO:
+        case SPECIES_ZAPDOS:
+        case SPECIES_MOLTRES:
+        #ifdef POKEMON_EXPANSION
+        case SPECIES_ARTICUNO_GALARIAN:
+        case SPECIES_ZAPDOS_GALARIAN:
+        case SPECIES_MOLTRES_GALARIAN:
+        #endif
+            return MUS_RG_VS_LEGEND;
+        case SPECIES_MEWTWO:
+        #ifdef POKEMON_EXPANSION
+        case SPECIES_MEWTWO_MEGA_X:
+        case SPECIES_MEWTWO_MEGA_Y:
+        #endif
+            return MUS_RG_VS_MEWTWO;
+        case SPECIES_MEW:
+            return MUS_VS_MEW;
+        case SPECIES_RAIKOU:
+            return MUS_HG_VS_RAIKOU;
+        case SPECIES_ENTEI:
+            return MUS_HG_VS_ENTEI;
+        case SPECIES_SUICUNE:
+            return MUS_HG_VS_SUICUNE;
+        case SPECIES_LUGIA:
+            return MUS_HG_VS_LUGIA;
+        case SPECIES_HO_OH:
+            return MUS_HG_VS_HO_OH;
+        case SPECIES_CELEBI:
+            return MUS_HG_VS_WILD;
+        case SPECIES_REGIROCK:
+        case SPECIES_REGICE:
+        case SPECIES_REGISTEEL:
+        #ifdef POKEMON_EXPANSION
+        case SPECIES_REGIGIGAS:
+        case SPECIES_REGIELEKI:
+        case SPECIES_REGIDRAGO:
+        #endif
+            return MUS_VS_REGI;
+        case SPECIES_LATIAS:
+        case SPECIES_LATIOS:
+        #ifdef POKEMON_EXPANSION
+        case SPECIES_LATIAS_MEGA:
+        case SPECIES_LATIOS_MEGA:
+        #endif
+            return MUS_VS_WILD;
+        case SPECIES_GROUDON:
+        case SPECIES_KYOGRE:
+        case SPECIES_RAYQUAZA:
+        #ifdef POKEMON_EXPANSION
+        case SPECIES_RAYQUAZA_MEGA:
+        case SPECIES_KYOGRE_PRIMAL:
+        case SPECIES_GROUDON_PRIMAL:
+        #endif
+            return MUS_VS_KYOGRE_GROUDON;
+        case SPECIES_JIRACHI:
+            return MUS_VS_WILD;
+        case SPECIES_DEOXYS:
+        #ifdef POKEMON_EXPANSION
+        case SPECIES_DEOXYS_ATTACK:
+        case SPECIES_DEOXYS_DEFENSE:
+        case SPECIES_DEOXYS_SPEED:
+        #endif
+            return MUS_RG_VS_DEOXYS;
+        #ifdef POKEMON_EXPANSION
+        case SPECIES_UXIE:
+        case SPECIES_MESPRIT:
+        case SPECIES_AZELF:
+            return MUS_DP_VS_UXIE_MESPRIT_AZELF;
+        case SPECIES_DIALGA:
+        case SPECIES_PALKIA:
+            return MUS_DP_VS_DIALGA_PALKIA;
+        case SPECIES_ROTOM:
+        case SPECIES_ROTOM_HEAT:
+        case SPECIES_ROTOM_WASH:
+        case SPECIES_ROTOM_FROST:
+        case SPECIES_ROTOM_FAN:
+        case SPECIES_ROTOM_MOW:
+        case SPECIES_HEATRAN:
+        case SPECIES_MANAPHY:
+        case SPECIES_DARKRAI:
+            return MUS_DP_VS_LEGEND;
+        case SPECIES_GIRATINA:
+        case SPECIES_GIRATINA_ORIGIN:
+            return MUS_PL_VS_GIRATINA;
+        case SPECIES_CRESSELIA:
+        case SPECIES_PHIONE:
+        case SPECIES_SHAYMIN:
+        case SPECIES_SHAYMIN_SKY:
+            return MUS_DP_VS_WILD;
+        case SPECIES_ARCEUS:
+        case SPECIES_ARCEUS_FIGHTING:
+        case SPECIES_ARCEUS_FLYING:
+        case SPECIES_ARCEUS_POISON:
+        case SPECIES_ARCEUS_GROUND:
+        case SPECIES_ARCEUS_ROCK:
+        case SPECIES_ARCEUS_BUG:
+        case SPECIES_ARCEUS_GHOST:
+        case SPECIES_ARCEUS_STEEL:
+        case SPECIES_ARCEUS_FIRE:
+        case SPECIES_ARCEUS_WATER:
+        case SPECIES_ARCEUS_GRASS:
+        case SPECIES_ARCEUS_ELECTRIC:
+        case SPECIES_ARCEUS_PSYCHIC:
+        case SPECIES_ARCEUS_ICE:
+        case SPECIES_ARCEUS_DRAGON:
+        case SPECIES_ARCEUS_DARK:
+        case SPECIES_ARCEUS_FAIRY:
+            return MUS_DP_VS_ARCEUS;
+        #endif
+        default:
+            return MUS_VS_WILD;
+        }
+    }
 }
 
 void PlayBattleBGM(void)
@@ -8152,9 +8302,9 @@ void BattleAnimateBackSprite(struct Sprite *sprite, u16 species)
     }
 }
 
-// Unused, identical to GetOpposingLinkMultiBattlerId but for the player
+// Identical to GetOpposingLinkMultiBattlerId but for the player
 // "rightSide" from that team's perspective, i.e. B_POSITION_*_RIGHT
-static u8 GetOwnOpposingLinkMultiBattlerId(bool8 rightSide)
+static u8 UNUSED GetOwnOpposingLinkMultiBattlerId(bool8 rightSide)
 {
     s32 i;
     s32 battlerId = 0;
@@ -8498,12 +8648,12 @@ u16 GetFormChangeTargetSpeciesBoxMon(struct BoxPokemon *boxMon, u16 method, u32 
                         {
                         case DAY:
                             RtcCalcLocalTime();
-                            if (gLocalTime.hours >= 12 && gLocalTime.hours < 24)
+                            if (gLocalTime.hours >= DAY_EVO_HOUR_BEGIN && gLocalTime.hours < DAY_EVO_HOUR_END)
                                 targetSpecies = formChanges[i].targetSpecies;
                             break;
                         case NIGHT:
                             RtcCalcLocalTime();
-                            if (gLocalTime.hours >= 0 && gLocalTime.hours < 12)
+                            if (gLocalTime.hours >= NIGHT_EVO_HOUR_BEGIN && gLocalTime.hours < NIGHT_EVO_HOUR_END)
                                 targetSpecies = formChanges[i].targetSpecies;
                             break;
                         default:

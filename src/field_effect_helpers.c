@@ -123,7 +123,7 @@ void LoadSpecialReflectionPalette(struct Sprite *sprite)
 	}
 	reflectionPalette.data = gReflectionPaletteBuffer;
 	reflectionPalette.tag = GetSpritePaletteTagByPaletteNum(sprite->oam.paletteNum) + 0x1000;
-	LoadSpritePalette_HandleDayNight(&reflectionPalette, TRUE);
+	LoadSpritePaletteDayNight(&reflectionPalette);
 	sprite->oam.paletteNum = IndexOfSpritePaletteTag(reflectionPalette.tag);
 	UpdatePaletteGammaType(sprite->oam.paletteNum, GAMMA_ALT);
 	UpdateSpritePaletteWithWeather(sprite->oam.paletteNum);
@@ -1674,7 +1674,7 @@ static void UpdateGrassFieldEffectSubpriority(struct Sprite *sprite, u8 elevatio
 {
     u8 i;
     s16 var, xhi, lyhi, yhi, ylo;
-    const struct ObjectEventGraphicsInfo *graphicsInfo; // Unused Variable
+    const struct ObjectEventGraphicsInfo UNUSED *graphicsInfo;
     struct Sprite *linkedSprite;
 
     SetObjectSubpriorityByElevation(elevation, sprite, subpriority);
