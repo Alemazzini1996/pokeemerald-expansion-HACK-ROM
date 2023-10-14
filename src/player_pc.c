@@ -251,6 +251,7 @@ static const struct ItemSlot sNewGamePCItems[] =
     { ITEM_TM13, 1 },
     { ITEM_TM26, 1 },
     { ITEM_EXP_SHARE, 1 },
+    { ITEM_EON_FLUTE, 1 },
     { ITEM_POTION, 1 },
     { ITEM_NONE, 0 }
 };
