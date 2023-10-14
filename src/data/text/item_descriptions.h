@@ -3680,6 +3680,11 @@ static const u8 sOldSeaMapDesc[] = _(
     "that shows the way\n"
     "to a certain island.");
 
+static const u8 sEonFluteDesc[] = _(
+	"A flute that can\n"
+	"summon LATIAS or\n"
+	"LATIOS.");
+
 static const u8 sLetterDesc[] = _(
     "A letter to Steven\n"
     "from the President\n"

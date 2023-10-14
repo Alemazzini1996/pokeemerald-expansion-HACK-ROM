@@ -32,6 +32,17 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
+    [ITEM_EON_FLUTE] =
+    {
+        .name = _("EON FLUTE"),
+        .price = 0,
+        .description = sEonFluteDesc,
+		.importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_EonFlute,
+    },
+
 // Poké Balls
 
     [ITEM_POKE_BALL] =

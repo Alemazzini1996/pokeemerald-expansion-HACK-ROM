@@ -9017,6 +9017,8 @@ extern const u32 gItemIcon_GoGoggles[];
 extern const u32 gItemIconPalette_GoGoggles[];
 extern const u32 gItemIcon_DevonScope[];
 extern const u32 gItemIconPalette_DevonScope[];
+extern const u32 gItemIcon_EonFlute[];
+extern const u32 gItemIconPalette_EonFlute[];
 extern const u32 gItemIcon_BasementKey[];
 extern const u32 gItemIconPalette_OldKey[];
 extern const u32 gItemIcon_Scanner[];

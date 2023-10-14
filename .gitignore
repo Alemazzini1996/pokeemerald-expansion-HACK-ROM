@@ -36,6 +36,11 @@ prefabs.json
 *.a
 .fuse_hidden*
 *.sna
+/.vs/VSWorkspaceState.json
+/.vs/slnx.sqlite
+/.vs/ProjectSettings.json
+/.vs/pokeemerald/v16
+/.vs
 *.diff
 *.sym
 *.js

@@ -45,6 +45,8 @@
 #include "constants/item_effects.h"
 #include "constants/items.h"
 #include "constants/songs.h"
+#include "constants/vars.h"
+#include "soar.h"
 #include "constants/map_types.h"
 #include "script_pokemon_util.h"
 #include "pokenav.h"
@@ -1663,6 +1665,20 @@ static void ItemUseOnFieldCB_PowerGlove(u8 taskId)
 	LockPlayerFieldControls();
     ScriptContext_SetupScript(EventScript_UseStrength);
     DestroyTask(taskId);
+}
+
+void ItemUseOutOfBattle_EonFlute(u8 taskId)
+{
+	s16* data = gTasks[taskId].data;
+
+	if (Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType) == TRUE)
+	{
+        sItemUseOnFieldCB = ItemUseOnFieldCB_EonFlute;
+		SetUpItemUseOnFieldCallback(taskId);
+	}
+	else {
+		DisplayDadsAdviceCannotUseItemMessage(taskId, data[3]);
+	}
 }
 
 #undef tUsingRegisteredKeyItem
