@@ -34,12 +34,12 @@ const struct Item gItems[] =
 
     [ITEM_EON_FLUTE] =
     {
-        .name = _("EON FLUTE"),
+        .name = _("Eon Flute"),
         .price = 0,
         .description = sEonFluteDesc,
 		.importance = 1,
         .pocket = POCKET_KEY_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
+        .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_EonFlute,
     },
 
