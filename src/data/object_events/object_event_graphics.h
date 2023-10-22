@@ -389,3 +389,6 @@ const u32 gObjectEventPic_HexManiacORAS[] = INCBIN_U32("graphics/object_events/p
 const u16 gObjectEventPal_HexManiacORAS[] = INCBIN_U16("graphics/object_events/palettes/hex_maniac_oras.gbapal");
 const u32 gObjectEventPic_RocketGruntFHGSS[] = INCBIN_U32("graphics/object_events/pics/people/rocket_grunt_f_hgss.4bpp");
 const u16 gObjectEventPal_RocketGruntFHGSS[] = INCBIN_U16("graphics/object_events/palettes/rocket_grunt_f_hgss.gbapal");
+
+const u32 gFieldEffectObjectPic_CaveDust[] = INCBIN_U32("graphics/field_effects/pics/cave_dust.4bpp");
+const u16 gFieldEffectObjectPalette_CaveDust[] = INCBIN_U16("graphics/field_effects/palettes/cave_dust.gbapal");

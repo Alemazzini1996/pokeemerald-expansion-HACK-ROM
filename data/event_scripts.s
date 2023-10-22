@@ -1064,3 +1064,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/text/birch_speech.inc"
 
 	.include "data/maps/Space_Rocket/scripts.inc"
+    .include "data/scripts/dexnav.inc"
+    
