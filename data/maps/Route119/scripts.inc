@@ -132,7 +132,7 @@ Route119_EventScript_DefeatedBrendan::
 	end
 
 Route119_EventScript_GiveFlyHM::
-	giveitem ITEM_HM_FLY
+	giveitem ITEM_TAXI_TICKET
 	setflag FLAG_RECEIVED_HM_FLY
 	return
 
@@ -499,13 +499,13 @@ Route119_Text_MayPresentForYou:
 	.string "And, here! I have a present for you.$"
 
 Route119_Text_MayExplainFly:
-	.string "MAY: Use FLY, and your POKéMON will\n"
-	.string "instantly carry you to any town you've\l"
-	.string "already visited.\p"
-	.string "But, to use FLY, you have to get\n"
+	.string "MAY: Use this, and a flying taxi\n"
+	.string "will arrive instantly and carry you to\l"
+	.string "every town you've already visited.\p"
+	.string "But, to use it, you have to get\n"
 	.string "the GYM BADGE from FORTREE CITY.\l"
 	.string "That's important, so don't forget.\p"
-	.string "You should FLY home and visit\n"
+	.string "You should fly home and visit\n"
 	.string "LITTLEROOT for a change.\p"
 	.string "I bet your mom's worried about you,\n"
 	.string "{PLAYER}{KUN}.\p"
@@ -530,9 +530,9 @@ Route119_Text_BrendanIllGiveYouThis:
 	.string "Try it out.$"
 
 Route119_Text_BrendanExplainFly:
-	.string "BRENDAN: Use FLY, and your POKéMON\n"
-	.string "instantly carries you to any town\l"
-	.string "you've already visited.\p"
+	.string "BRENDAN: Use this, and a flying taxi\n"
+	.string "will arrive instantly and carry you to\l"
+	.string "every town you've already visited.\p"
 	.string "But you need the FORTREE GYM BADGE \n"
 	.string "to do that.\p"
 	.string "Anyway, I have to move along.$"
@@ -581,8 +581,8 @@ Route119_Text_ThoughtFlyByCatchingBirdMons:
 	.string "I thought you FLY by catching a whole\n"
 	.string "flock of BIRD POKéMON, and then\l"
 	.string "hanging on to them somehow.\p"
-	.string "But it turns out there's an HM move\n"
-	.string "called FLY!\p"
+	.string "But it turns out there's a taxi\n"
+	.string "service done by corviknights!\p"
 	.string "I wish I'd known about that a long\n"
 	.string "time ago…$"
 
