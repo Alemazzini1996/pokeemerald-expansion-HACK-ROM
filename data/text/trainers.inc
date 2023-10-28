@@ -208,7 +208,7 @@ Route103_Text_PetePostBattle:
 	.string "Oh, I understand where you're coming\n"
 	.string "from now.\p"
 	.string "If I had a POKéMON that trusty,\n"
-	.string "I'd want to SURF on it, too!$"
+	.string "I'd want to Surf on it, too!$"
 
 Route103_Text_IsabelleIntro:
 	.string "Watch where you're going!\n"
@@ -2896,7 +2896,7 @@ Route119_Text_ChrisDefeat:
 	.string "takes to win.$"
 
 Route119_Text_ChrisPostBattle:
-	.string "Go for a SURF on my POKéMON…\p"
+	.string "Go for a surf on my POKéMON…\p"
 	.string "Then fish off its back…\p"
 	.string "It's an indescribably luxuriant moment!$"
 
@@ -4737,10 +4737,10 @@ Route134_Text_KelvinDefeat:
 	.string "Please, stop! Please!$"
 
 Route134_Text_KelvinPostBattle:
-	.string "If we can't SURF, how are we supposed\n"
+	.string "If we can't Surf, how are we supposed\n"
 	.string "to get home?\p"
 	.string "Actually, I know a fainted POKéMON\n"
-	.string "can still SURF, but it feels wrong.$"
+	.string "can still Surf, but it feels wrong.$"
 
 Route134_Text_MarleyIntro:
 	.string "Can your POKéMON dodge our\n"

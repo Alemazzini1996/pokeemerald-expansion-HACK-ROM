@@ -21,7 +21,7 @@ PetalburgCity_WallysHouse_OnFrame:
 PetalburgCity_WallysHouse_EventScript_GiveHMSurf::
 	lockall
 	msgbox PetalburgCity_WallysHouse_Text_PleaseExcuseUs, MSGBOX_DEFAULT
-	giveitem ITEM_HM_SURF
+	giveitem ITEM_WAILMER_SNACK
 	setflag FLAG_RECEIVED_HM_SURF
 	msgbox PetalburgCity_WallysHouse_Text_SurfGoAllSortsOfPlaces, MSGBOX_DEFAULT
 	setvar VAR_PETALBURG_CITY_STATE, 5
@@ -104,8 +104,10 @@ PetalburgCity_WallysHouse_Text_PleaseExcuseUs:
 	.string "I'd really like you to have this.$"
 
 PetalburgCity_WallysHouse_Text_SurfGoAllSortsOfPlaces:
-	.string "If your POKéMON can SURF, you'll be\n"
-	.string "able to go to all sorts of places.$"
+	.string "I'm a trainer at the safari zone, I work with\n"
+	.string "Wailmers, this will allow you to tame them.\p"
+	.string "They will ferry you over every patch of water,\n"
+	.string "I hope this will help you with your journey!$"
 
 PetalburgCity_WallysHouse_Text_WallyIsComingHomeSoon:
 	.string "WALLY's coming home soon.\n"

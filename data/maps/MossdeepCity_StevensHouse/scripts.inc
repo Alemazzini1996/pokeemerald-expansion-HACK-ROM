@@ -160,7 +160,7 @@ MossdeepCity_StevensHouse_Text_YouveEarnedHMDive:
 	.string "No need to be shy--you've earned this.$"
 
 MossdeepCity_StevensHouse_Text_ExplainDive:
-	.string "STEVEN: While you're using SURF, you\n"
+	.string "STEVEN: While you're Surfing, you\n"
 	.string "should notice dark patches of water.\p"
 	.string "Use this if you come to deep water\n"
 	.string "like it. You'll drop to the seafloor.\p"
