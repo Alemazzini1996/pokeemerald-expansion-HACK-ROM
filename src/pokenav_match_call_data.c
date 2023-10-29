@@ -570,8 +570,8 @@ static const struct MatchCallStructTrainer sWallaceMatchCallHeader =
 {
     .type = MC_TYPE_LEADER,
     .mapSec = MAPSEC_EVER_GRANDE_CITY,
-    .flag = FLAG_REMATCH_WALLACE,
-    .rematchTableIdx = REMATCH_WALLACE,
+    .flag = FLAG_REMATCH_STEVEN,
+    .rematchTableIdx = REMATCH_STEVEN,
     .desc = gText_ChampionMatchCallDesc,
     .name = NULL,
     .textData = sWallaceTextScripts

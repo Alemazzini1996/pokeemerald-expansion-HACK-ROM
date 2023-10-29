@@ -4020,16 +4020,16 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_Timmy),
     },
 
-    [TRAINER_WALLACE] =
+    [TRAINER_STEVEN_1] =
     {
         .trainerClass = TRAINER_CLASS_CHAMPION,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_CHAMPION_WALLACE,
-        .trainerName = _("WALLACE"),
+        .trainerPic = TRAINER_PIC_STEVEN,
+        .trainerName = _("STEVEN"),
         .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_Wallace),
+        .party = TRAINER_PARTY(sParty_Steven1),
     },
 
     [TRAINER_ANDREW] =
