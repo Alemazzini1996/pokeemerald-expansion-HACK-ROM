@@ -111,7 +111,6 @@ static void TMCase_PrintMessageWithFollowupTask(u8 taskId, u8 windowId, const u8
 static void PrintStringTMCaseOnWindow3(void);
 static void DrawMoveInfoUIMarkers(void);
 static void TMCase_MoveCursor_UpdatePrintedTMInfo(u16 itemId);
-static void PlaceHMTileInWindow(u8 windowId, u8 x, u8 y);
 static void HandlePrintMoneyOnHand(void);
 static void HandleCreateYesNoMenu(u8 taskId, const struct YesNoFuncTable * ptrs);
 static u8 AddTMContextMenu(u8 * a0, u8 a1);
@@ -803,13 +802,6 @@ static void Task_SelectTMAction_FromFieldBag(u8 taskId)
     AddTextPrinterParameterized_ColorByIndex(2, 2, strbuf, 0, 2, 1, 0, 0, 4);
     Free(strbuf);
 
-    //show HM icon
-    if (ItemId_GetImportance(gSpecialVar_ItemId))
-    {
-        PlaceHMTileInWindow(2, 0, 2);
-        CopyWindowToVram(2, 2);
-    }
-
     ScheduleBgCopyTilemapToVram(0);
     ScheduleBgCopyTilemapToVram(1);
     gTasks[taskId].func = Task_TMContextMenu_HandleInput;
@@ -1047,10 +1039,6 @@ static void TMCase_MoveCursor_UpdatePrintedTMInfo(u16 itemId)
     }
 }
 
-static void PlaceHMTileInWindow(u8 windowId, u8 x, u8 y)
-{
-    BlitBitmapToWindow(windowId, gUnknown_8E99118, x, y, 16, 12);
-}
 
 static void HandlePrintMoneyOnHand(void)
 {
