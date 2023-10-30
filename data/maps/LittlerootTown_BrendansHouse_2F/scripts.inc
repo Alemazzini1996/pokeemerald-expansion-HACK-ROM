@@ -471,12 +471,12 @@ PlayersHouse_2F_Text_HowDoYouLikeYourRoom:
 	.string "everything's all there on your desk.$"
 
 PlayersHouse_2F_Text_Notebook:
-	.string "{PLAYER} flipped open the notebook.\p"
-	.string "ADVENTURE RULE NO. 1\n"
-	.string "Open the MENU with START.\p"
-	.string "ADVENTURE RULE NO. 2\n"
-	.string "Record your progress with SAVE.\p"
-	.string "The remaining pages are blank…$"
+	.string "{PLAYER} opened the Codes' notebook.\p"
+	.string "INFINITE CANDIES: Nomnomnom.\p"
+	.string "100% CATCH RATE: BestBall.\p"
+	.string "EV IGNORED IN STAT CALC: EviesDayOff.\p"
+	.string "IV IGNORED IN STAT CALC: IvysDayOff.\p"
+	.string "LEVEL CAP REMOVED: UnHatted.$"
 
 Common_Text_LookCloserAtMap:
 	.string "{PLAYER} took a closer look at the\n"

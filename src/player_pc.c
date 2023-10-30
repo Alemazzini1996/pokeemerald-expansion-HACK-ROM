@@ -224,16 +224,6 @@ static const struct MenuAction sItemStorage_MenuActions[] =
 
 static const struct ItemSlot sNewGamePCItems[] =
 {
-    { ITEM_RARE_CANDY, 99 },
-    { ITEM_RARE_CANDY, 99 },
-    { ITEM_RARE_CANDY, 99 },
-    { ITEM_RARE_CANDY, 99 },
-    { ITEM_RARE_CANDY, 99 },
-    { ITEM_RARE_CANDY, 99 },
-    { ITEM_RARE_CANDY, 99 },
-    { ITEM_RARE_CANDY, 99 },
-    { ITEM_RARE_CANDY, 99 },
-    { ITEM_RARE_CANDY, 99 },
     { ITEM_MEGA_RING, 1 },
     { ITEM_SWAMPERTITE, 1 },
     { ITEM_Z_POWER_RING, 1 },
@@ -246,7 +236,6 @@ static const struct ItemSlot sNewGamePCItems[] =
     { ITEM_ULTRA_BALL, 99 },
     { ITEM_QUICK_BALL, 99 },
     { ITEM_LEVEL_BALL, 99 },
-    { ITEM_FLAME_ORB, 1 },
     { ITEM_ACRO_BIKE, 1 },
     { ITEM_TM13, 1 },
     { ITEM_TM26, 1 },
