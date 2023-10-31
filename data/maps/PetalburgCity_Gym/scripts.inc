@@ -409,6 +409,8 @@ PetalburgCity_Gym_EventScript_GiveFacade::
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
 	setflag FLAG_RECEIVED_TM_FACADE
 	msgbox PetalburgCity_Gym_Text_ExplainFacade, MSGBOX_DEFAULT
+	giveitem ITEM_MEGA_RING
+	msgbox PetalburgCity_Gym_Text_ExplainMegaRing, MSGBOX_DEFAULT
 	return
 
 PetalburgCity_Gym_EventScript_WallysDadArrivesNorth::
@@ -1285,8 +1287,8 @@ PetalburgCity_Gym_Text_ReceivedBalanceBadge:
 PetalburgCity_Gym_Text_ExplainBalanceBadgeTakeThis:
 	.string "DAD: With that BADGE, the DEFENSE\n"
 	.string "of all your POKéMON will increase.\p"
-    .string "This is my gift to you. {PLAYER}, I'm\n"
-	.string "sure you can use it correctly.$"
+    .string "This is my gift as GYM LEADER. {PLAYER},\n"
+	.string " I'm sure you can use it correctly.$"
 
 PetalburgCity_Gym_Text_ExplainFacade:
 	.string "DAD: TM42 contains FACADE.\p"
@@ -1294,7 +1296,20 @@ PetalburgCity_Gym_Text_ExplainFacade:
 	.string "the POKéMON is poisoned, paralyzed,\l"
 	.string "or burned.\p"
 	.string "It might be able to turn a bad\n"
-	.string "situation into an advantage.$"
+	.string "situation into an advantage.\p"
+	.string "I almost forgot!\p"
+	.string "This is my gift as a father,\n"
+	.string "I long waited this moment since\l"
+	.string "you started your journey.$"
+
+PetalburgCity_Gym_Text_ExplainMegaRing:
+    .string "That's a Mega Ring.\p"
+	.string "Paired with the related mega stone\n"
+	.string "on your POKEMON, will allow it to\l"
+	.string "evolve into a new form.\p"
+	.string "Only a few POKEMON can do it\n"
+	.string "and only one per battle.\p"
+	.string "So be sure to use it wisely.$"
 
 PetalburgCity_Gym_Text_DadHappyAndSad:
 	.string "DAD: As the GYM LEADER, I can't\n"

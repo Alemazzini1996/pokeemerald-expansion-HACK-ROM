@@ -104,10 +104,12 @@ PetalburgCity_WallysHouse_Text_PleaseExcuseUs:
 	.string "I'd really like you to have this.$"
 
 PetalburgCity_WallysHouse_Text_SurfGoAllSortsOfPlaces:
-	.string "I'm a trainer at the safari zone, I work with\n"
-	.string "Wailmers, this will allow you to tame them.\p"
-	.string "They will ferry you over every patch of water,\n"
-	.string "I hope this will help you with your journey!$"
+	.string "I'm a trainer at the safari zone,\n"
+	.string "I work with Wailmers, this will allow\l"
+	.string "you to befriend them easily.\p"
+	.string "They will ferry you over every patch\n"
+	.string "water, I hope this will help you\l"
+	.string "to progress with your journey!$"
 
 PetalburgCity_WallysHouse_Text_WallyIsComingHomeSoon:
 	.string "WALLY's coming home soon.\n"
