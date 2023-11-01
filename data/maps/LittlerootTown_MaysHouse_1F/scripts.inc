@@ -28,8 +28,7 @@ LittlerootTown_MaysHouse_1F_EventScript_ShowRunningShoesManual::
 	return
 
 LittlerootTown_MaysHouse_1F_EventScript_HideRunningShoesManual::
-	setmetatile 6, 7, METATILE_BrendansMaysHouse_BookOnTable, FALSE
-	return
+	end
 
 LittlerootTown_MaysHouse_1F_OnTransition:
 	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 3, LittlerootTown_MaysHouse_1F_EventScript_MoveMomToDoor
