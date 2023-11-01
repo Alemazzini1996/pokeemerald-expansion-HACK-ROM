@@ -34,6 +34,4 @@ GraniteCave_1F_Text_ExplainFlash:
 	.string "you for your task ahead.\p"
 	.string "It lights up even the inky darkness\n"
 	.string "of caves.\p"
-	.string "But, to use it, you need to open it and refuel\n"
-	.string "it, I think BRAWLY can help you.$"
 

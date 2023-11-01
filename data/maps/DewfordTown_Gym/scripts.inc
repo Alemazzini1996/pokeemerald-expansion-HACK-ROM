@@ -403,9 +403,6 @@ DewfordTown_Gym_Text_KnuckleBadgeInfoTakeThis:
 	.string "The KNUCKLE BADGE makes all POKéMON\n"
 	.string "up to Level 30, even those you get in\l"
 	.string "trades, obey without question.\p"
-	.string "Now let me see that Lantern...\n"
-	.string "… … … … … … … … … … … …\l"
-	.string "There you go, it works perfectly.\p"
 	.string "If you'd like, use this TECHNICAL\n"
 	.string "MACHINE, too.$"
 
