@@ -676,5 +676,10 @@ PlayersHouse_1F_Movement_PlayerApproachTVForLatiFemale:
 	step_end
 
 EventScript_RunningShoesManual::
+    lockall
 	msgbox PlayersHouse_1F_Text_RunningShoesManual, MSGBOX_SIGN
+	goto_if_set FLAG_ROTOM_CATALOG_OBTAINED, LittlerootTown_MaysHouse_1F_EventScript_HideRunningShoesManual
+	giveitem ITEM_ROTOM_CATALOG
+	setflag FLAG_ROTOM_CATALOG_OBTAINED
+	releaseall
 	end
