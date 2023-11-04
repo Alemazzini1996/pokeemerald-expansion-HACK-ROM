@@ -3397,7 +3397,7 @@ static const struct TrainerMon sParty_Norman1[] = {
     .lvl = 31,
     .species = SPECIES_SLAKING,
     .heldItem = ITEM_FLAME_ORB,
-    .ability = ABILITY_GUTS
+    .ability = ABILITY_GUTS,
     .moves = {MOVE_SUCKER_PUNCH, MOVE_FACADE, MOVE_PLAY_ROUGH, MOVE_EARTHQUAKE}
     },
     {
