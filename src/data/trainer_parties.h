@@ -3395,9 +3395,10 @@ static const struct TrainerMon sParty_Norman1[] = {
     {
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
     .lvl = 31,
-    .species = SPECIES_WIGGLYTUFF,
-    .heldItem = ITEM_THROAT_SPRAY,
-    .moves = {MOVE_WISH, MOVE_FIRE_BLAST, MOVE_DAZZLING_GLEAM, MOVE_HYPER_VOICE}
+    .species = SPECIES_SLAKING,
+    .heldItem = ITEM_FLAME_ORB,
+    .ability = ABILITY_GUTS
+    .moves = {MOVE_SUCKER_PUNCH, MOVE_FACADE, MOVE_PLAY_ROUGH, MOVE_EARTHQUAKE}
     },
     {
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
@@ -4185,7 +4186,7 @@ static const struct TrainerMon sParty_Quincy[] = {
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
     .lvl = 43,
     .species = SPECIES_SLAKING,
-    .moves = {MOVE_ATTRACT, MOVE_ICE_BEAM, MOVE_THUNDERBOLT, MOVE_FLAMETHROWER}
+    .moves = {MOVE_ATTRACT, MOVE_BRICK_BREAK, MOVE_FEINT_ATTACK, MOVE_PLAY_ROUGH}
     },
     {
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
@@ -4206,7 +4207,7 @@ static const struct TrainerMon sParty_Katelynn[] = {
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
     .lvl = 43,
     .species = SPECIES_SLAKING,
-    .moves = {MOVE_EARTHQUAKE, MOVE_SHADOW_BALL, MOVE_AERIAL_ACE, MOVE_BRICK_BREAK}
+    .moves = {MOVE_EARTHQUAKE, MOVE_PLAY_ROUGH, MOVE_AERIAL_ACE, MOVE_BRICK_BREAK}
     }
 };
 
