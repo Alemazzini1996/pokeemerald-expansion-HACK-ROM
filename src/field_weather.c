@@ -90,7 +90,8 @@ static const struct WeatherCallbacks sWeatherFuncs[] =
     [WEATHER_SUNNY]              = {Sunny_InitVars,         Sunny_Main,         Sunny_InitAll,         Sunny_Finish},
     [WEATHER_RAIN]               = {Rain_InitVars,          Rain_Main,          Rain_InitAll,          Rain_Finish},
     [WEATHER_SNOW]               = {Snow_InitVars,          Snow_Main,          Snow_InitAll,          Snow_Finish},
-    [WEATHER_RAIN_THUNDERSTORM]  = {Thunderstorm_InitVars,  Thunderstorm_Main,  Thunderstorm_InitAll,  Thunderstorm_Finish},
+    [WEATHER_RAIN_THUNDERSTORM]  = {RainThunderstorm_InitVars,  RainThunderstorm_Main,  RainThunderstorm_InitAll,  RainThunderstorm_Finish},
+    [WEATHER_THUNDERSTORM]       = {Thunderstorm_InitVars,  Thunderstorm_Main,  Thunderstorm_InitAll,  Thunderstorm_Finish},
     [WEATHER_FOG_HORIZONTAL]     = {FogHorizontal_InitVars, FogHorizontal_Main, FogHorizontal_InitAll, FogHorizontal_Finish},
     [WEATHER_VOLCANIC_ASH]       = {Ash_InitVars,           Ash_Main,           Ash_InitAll,           Ash_Finish},
     [WEATHER_SANDSTORM]          = {Sandstorm_InitVars,     Sandstorm_Main,     Sandstorm_InitAll,     Sandstorm_Finish},
@@ -98,7 +99,7 @@ static const struct WeatherCallbacks sWeatherFuncs[] =
     [WEATHER_UNDERWATER]         = {FogHorizontal_InitVars, FogHorizontal_Main, FogHorizontal_InitAll, FogHorizontal_Finish},
     [WEATHER_SHADE]              = {Shade_InitVars,         Shade_Main,         Shade_InitAll,         Shade_Finish},
     [WEATHER_DROUGHT]            = {Drought_InitVars,       Drought_Main,       Drought_InitAll,       Drought_Finish},
-    [WEATHER_DOWNPOUR]           = {Downpour_InitVars,      Thunderstorm_Main,  Downpour_InitAll,      Thunderstorm_Finish},
+    [WEATHER_DOWNPOUR]           = {Downpour_InitVars,      RainThunderstorm_Main,  Downpour_InitAll,      RainThunderstorm_Finish},
     [WEATHER_UNDERWATER_BUBBLES] = {Bubbles_InitVars,       Bubbles_Main,       Bubbles_InitAll,       Bubbles_Finish},
 };
 
@@ -383,6 +384,7 @@ static void FadeInScreenWithWeather(void)
     {
     case WEATHER_RAIN:
     case WEATHER_RAIN_THUNDERSTORM:
+    case WEATHER_THUNDERSTORM:
     case WEATHER_DOWNPOUR:
     case WEATHER_SHADE:
         if (FadeInScreen_RainShowShade() == FALSE)
@@ -775,6 +777,7 @@ void FadeScreen(u8 mode, s8 delay)
     {
     case WEATHER_RAIN:
     case WEATHER_RAIN_THUNDERSTORM:
+    case WEATHER_THUNDERSTORM:
     case WEATHER_DOWNPOUR:
     case WEATHER_FOG_HORIZONTAL:
     case WEATHER_SHADE:
@@ -1018,6 +1021,9 @@ static void UNUSED SetFieldWeather(u8 weather)
         break;
     case COORD_EVENT_WEATHER_RAIN_THUNDERSTORM:
         SetWeather(WEATHER_RAIN_THUNDERSTORM);
+        break;
+    case COORD_EVENT_WEATHER_THUNDERSTORM:
+        SetWeather(WEATHER_THUNDERSTORM);
         break;
     case COORD_EVENT_WEATHER_FOG_HORIZONTAL:
         SetWeather(WEATHER_FOG_HORIZONTAL);

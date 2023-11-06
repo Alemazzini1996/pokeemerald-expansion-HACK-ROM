@@ -1845,6 +1845,7 @@ static const u8 sWeatherNames[22][24] = {
     [WEATHER_RAIN]               = _("RAIN"),
     [WEATHER_SNOW]               = _("SNOW"),
     [WEATHER_RAIN_THUNDERSTORM]  = _("RAIN THUNDERSTORM"),
+    [WEATHER_THUNDERSTORM]       = _("THUNDERSTORM"),
     [WEATHER_FOG_HORIZONTAL]     = _("FOG HORIZONTAL"),
     [WEATHER_VOLCANIC_ASH]       = _("VOLCANIC ASH"),
     [WEATHER_SANDSTORM]          = _("SANDSTORM"),

@@ -495,6 +495,7 @@ static const u8 sText_Lanettes[] = _("LANETTE's");
 static const u8 sText_PkmnDataAddedToDex[] = _("{B_DEF_NAME}'s data was\nadded to the POKéDEX.\p");
 static const u8 sText_ItIsRaining[] = _("It is raining.");
 static const u8 sText_SandstormIsRaging[] = _("A sandstorm is raging.");
+static const u8 sText_ThunderstormIsRaging[] = _("A thunderstorm is raging.");
 static const u8 sText_BoxIsFull[] = _("The BOX is full!\nYou can't catch any more!\p");
 static const u8 sText_EnigmaBerry[] = _("ENIGMA BERRY");
 static const u8 sText_BerrySuffix[] = _(" BERRY");
@@ -1191,6 +1192,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNSENTTOPC - BATTLESTRINGS_TABLE_START] = sText_PkmnSentToPC,
     [STRINGID_PKMNDATAADDEDTODEX - BATTLESTRINGS_TABLE_START] = sText_PkmnDataAddedToDex,
     [STRINGID_ITISRAINING - BATTLESTRINGS_TABLE_START] = sText_ItIsRaining,
+    [STRINGID_THUNDERSTORMISRAGING - BATTLESTRINGS_TABLE_START] = sText_ThunderstormIsRaging,
     [STRINGID_SANDSTORMISRAGING - BATTLESTRINGS_TABLE_START] = sText_SandstormIsRaging,
     [STRINGID_CANTESCAPE2 - BATTLESTRINGS_TABLE_START] = sText_CantEscape2,
     [STRINGID_PKMNIGNORESASLEEP - BATTLESTRINGS_TABLE_START] = sText_PkmnIgnoresAsleep,
@@ -1846,7 +1848,7 @@ const u16 gBallEscapeStringIds[] =
 };
 
 // Overworld weathers that don't have an associated battle weather default to "It is raining."
-const u16 gWeatherStartsStringIds[] =
+const u32 gWeatherStartsStringIds[] =
 {
     [WEATHER_NONE]               = STRINGID_ITISRAINING,
     [WEATHER_SUNNY_CLOUDS]       = STRINGID_ITISRAINING,
@@ -1858,6 +1860,7 @@ const u16 gWeatherStartsStringIds[] =
     [WEATHER_SNOW]               = STRINGID_STARTEDHAIL,
 #endif
     [WEATHER_RAIN_THUNDERSTORM]  = STRINGID_ITISRAINING,
+    [WEATHER_THUNDERSTORM]       = STRINGID_THUNDERSTORMISRAGING,
     [WEATHER_FOG_HORIZONTAL]     = STRINGID_ITISRAINING,
     [WEATHER_VOLCANIC_ASH]       = STRINGID_ITISRAINING,
     [WEATHER_SANDSTORM]          = STRINGID_SANDSTORMISRAGING,
