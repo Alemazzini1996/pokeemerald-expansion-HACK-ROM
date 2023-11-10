@@ -163,17 +163,17 @@
 
 // Var Settings
 // To use the following features in scripting, replace the 0s with the var ID you're assigning it to.
-// Eg: Replace with VAR_UNUSED_0x40F7 so you can use VAR_TERRAIN for that feature.
-#define VAR_TERRAIN                 0     // If this var has a value, assigning a STATUS_FIELD_xx_TERRAIN to it before battle causes the battle to start with that terrain active
-#define B_VAR_WILD_AI_FLAGS         0     // If not 0, you can use this var to add to default wild AI flags. NOT usable with flags above (1 << 15)
+// Eg: Replace with VAR_UNUSED_0x40F9 so you can use VAR_TERRAIN for that feature.
+#define VAR_TERRAIN                 0x40F9     // If this var has a value, assigning a STATUS_FIELD_xx_TERRAIN to it before battle causes the battle to start with that terrain active
+#define B_VAR_WILD_AI_FLAGS         0          // If not 0, you can use this var to add to default wild AI flags. NOT usable with flags above (1 << 15)
 
 // Flag and Var settings
 #define B_RESET_FLAGS_VARS_AFTER_WHITEOUT TRUE // If TRUE, Overworld_ResetBattleFlagsAndVars will reset battle-related Flags and Vars when the player whites out.
 
 // Terrain settings
 #define B_TERRAIN_BG_CHANGE         TRUE       // If set to TRUE, terrain moves permanently change the default battle background until the effect fades.
-#define B_THUNDERSTORM_TERRAIN      TRUE       // If TRUE, overworld Thunderstorm generates Electric Terrain as in Gen 8.
-#define B_FOG_TERRAIN               TRUE       // If TRUE, overworld Fog generates Misty Terrain as in Gen 8.
+#define B_THUNDERSTORM_TERRAIN      FALSE      // If TRUE, overworld Thunderstorm generates Electric Terrain as in Gen 8.
+#define B_FOG_TERRAIN               FALSE      // If TRUE, overworld Fog generates Misty Terrain as in Gen 8.
 #define B_TERRAIN_TYPE_BOOST        GEN_LATEST // In Gen8, damage is boosted by 30% instead of 50%.
 #define B_SECRET_POWER_EFFECT       GEN_LATEST // Secret Power's effects change depending on terrain and generation. See GetSecretPowerMoveEffect.
 #define B_SECRET_POWER_ANIMATION    GEN_LATEST // Secret Power's animations change depending on terrain and generation.
