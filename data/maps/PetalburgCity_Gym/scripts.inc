@@ -411,6 +411,22 @@ PetalburgCity_Gym_EventScript_GiveFacade::
 	msgbox PetalburgCity_Gym_Text_ExplainFacade, MSGBOX_DEFAULT
 	giveitem ITEM_MEGA_RING
 	msgbox PetalburgCity_Gym_Text_ExplainMegaRing, MSGBOX_DEFAULT
+	msgbox PetalburgCity_Gym_Text_ExplainMegaStone, MSGBOX_DEFAULT
+	call_if_eq VAR_STARTER_MON, 0, Megastone_Sceptile_Starter
+	call_if_eq VAR_STARTER_MON, 1, Megastone_Blaziken_Starter
+	call_if_eq VAR_STARTER_MON, 2, Megastone_Swampert_Starter
+	return
+
+Megastone_Sceptile_Starter:
+    giveitem ITEM_SCEPTILITE
+	return
+
+Megastone_Blaziken_Starter:
+    giveitem ITEM_BLAZIKENITE
+	return
+
+Megastone_Swampert_Starter:
+    giveitem ITEM_SWAMPERTITE
 	return
 
 PetalburgCity_Gym_EventScript_WallysDadArrivesNorth::
@@ -1307,8 +1323,14 @@ PetalburgCity_Gym_Text_ExplainMegaRing:
 	.string "Paired with the related mega stone\n"
 	.string "on your POKEMON, will allow it to\l"
 	.string "evolve into a new form.\p"
-	.string "Only a few POKEMON can do it\n"
-	.string "and only one per battle.\p"
+	.string "And this...$"
+
+PetalburgCity_Gym_Text_ExplainMegaStone:
+    .string "This is the megastone for your\n"
+	.string "beloved starter.\p"
+	.string "Remember that only few POKEMON\n"
+	.string "can MegaEvolve and only one\l"
+	.string "per battle.\p"
 	.string "So be sure to use it wisely.$"
 
 PetalburgCity_Gym_Text_DadHappyAndSad:

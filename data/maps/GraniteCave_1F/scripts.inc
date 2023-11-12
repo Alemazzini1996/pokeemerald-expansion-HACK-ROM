@@ -33,5 +33,5 @@ GraniteCave_1F_Text_ExplainFlash:
 	.string "That's an item that will help\n"
 	.string "you for your task ahead.\p"
 	.string "It lights up even the inky darkness\n"
-	.string "of caves.\p"
+	.string "of caves.$"
 
