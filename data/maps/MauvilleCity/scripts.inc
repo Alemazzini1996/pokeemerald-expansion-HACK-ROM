@@ -16,6 +16,7 @@ MauvilleCity_OnTransition:
 	clearflag FLAG_MAUVILLE_GYM_BARRIERS_STATE
 	setvar VAR_MAUVILLE_GYM_STATE, 0
 	call_if_set FLAG_GOT_TM_THUNDERBOLT_FROM_WATTSON, MauvilleCity_EventScript_MoveWattsonBackToGym
+	setvar VAR_TERRAIN, 0
 	end
 
 MauvilleCity_EventScript_MoveWattsonBackToGym::

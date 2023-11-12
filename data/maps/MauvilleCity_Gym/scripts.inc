@@ -1,11 +1,11 @@
 MauvilleCity_Gym_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, MauvilleCity_Gym_OnLoad
-    map_script MAP_SCRIPT_ON_TRANSITION, Map_OnTransition_MauvilleGym
+	map_script MAP_SCRIPT_ON_TRANSITION, Map_OnTransition_MauvilleGym
 	.byte 0
 
 Map_OnTransition_MauvilleGym:
     setvar VAR_TERRAIN, STATUS_FIELD_ELECTRIC_TERRAIN
-    end
+	end
 
 MauvilleCity_Gym_OnLoad:
 	goto_if_set FLAG_DEFEATED_MAUVILLE_GYM, MauvilleCity_Gym_EventScript_DeactivatePuzzle
