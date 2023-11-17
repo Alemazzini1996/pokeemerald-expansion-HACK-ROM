@@ -4397,11 +4397,11 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_MEGANIUM] =
     {
-        .baseHP        = 80,
-        .baseAttack    = 82,
+        .baseHP        = 105,
+        .baseAttack    = 60,
         .baseDefense   = 100,
-        .baseSpeed     = 80,
-        .baseSpAttack  = 83,
+        .baseSpeed     = 70,
+        .baseSpAttack  = 100,
         .baseSpDefense = 100,
         .types = { TYPE_GRASS, TYPE_FAIRY },
         .catchRate = 45,
@@ -4466,10 +4466,10 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_TYPHLOSION] =
     {
         .baseHP        = 78,
-        .baseAttack    = 84,
-        .baseDefense   = 78,
-        .baseSpeed     = 100,
-        .baseSpAttack  = 109,
+        .baseAttack    = 70,
+        .baseDefense   = 85,
+        .baseSpeed     = 105,
+        .baseSpAttack  = 112,
         .baseSpDefense = 85,
         .types = { TYPE_FIRE, TYPE_GROUND },
         .catchRate = 45,
@@ -4532,12 +4532,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_FERALIGATR] =
     {
-        .baseHP        = 85,
+        .baseHP        = 90,
         .baseAttack    = 105,
         .baseDefense   = 100,
-        .baseSpeed     = 78,
-        .baseSpAttack  = 79,
-        .baseSpDefense = 83,
+        .baseSpeed     = 80,
+        .baseSpAttack  = 75,
+        .baseSpDefense = 85,
         .types = { TYPE_WATER, TYPE_DARK },
         .catchRate = 45,
         .expYield = 239,
