@@ -3,6 +3,7 @@ Space_Rocket_MapScripts::
 
 Rocket_Launch_Script::
 lockall
+delay(60)
 msgbox Text_Launch MSGBOX_AUTOCLOSE
 goto Rocket_Shake
 releaseall
@@ -30,6 +31,8 @@ Rocket_Shake::
 	setvar VAR_0x8006, 60  //@ num shakes
 	setvar VAR_0x8007, 4  //@ shake delay
 	special ShakeCamera
+	delay(60)
+	fadescreen 3
 	delay(60)
 	warp MAP_BIRTH_ISLAND_EXTERIOR, 15, 27
 	return
