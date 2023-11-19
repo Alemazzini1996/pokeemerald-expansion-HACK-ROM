@@ -91,8 +91,8 @@
         .baseHP        = 80,                          \
         .baseAttack    = 30,                          \
         .baseDefense   = 70,                          \
-        .baseSpeed     = 100,                         \
-        .baseSpAttack  = 70,                          \
+        .baseSpeed     = 120,                         \
+        .baseSpAttack  = 100,                         \
         .baseSpDefense = 70,                          \
         .types = { type, type },                      \
         .catchRate = 45,                              \
