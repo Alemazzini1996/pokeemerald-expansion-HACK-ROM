@@ -47,6 +47,7 @@
 #include "constants/trainers.h"
 #include "constants/weather.h"
 #include "constants/pokemon.h"
+#include "battle_script_commands.h"
 
 extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 
@@ -510,7 +511,14 @@ void HandleAction_UseMove(void)
     }
     else
     {
-        gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect];
+        // enhancement wiz1989
+        //use different Battle_Script for move effect of Solar Beam if Castform changes the weather in the same turn
+        if (IsCastform(gBattlerAttacker) && gBattleMons[gBattlerAttacker].ability == ABILITY_FORECAST && gBattleMoves[gCurrentMove].effect == EFFECT_SOLAR_BEAM) {
+            gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[EFFECT_CASTFORM_SOLAR_BEAM];
+        }
+        else
+            gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect];
+        // enhancement end
     }
 
     if (gBattleTypeFlags & BATTLE_TYPE_ARENA)
@@ -3823,6 +3831,8 @@ u8 AtkCanceller_UnableToUseMove2(void)
             if (gFieldStatuses & STATUS_FIELD_PSYCHIC_TERRAIN
                 && IsBattlerGrounded(gBattlerTarget)
                 && GetChosenMovePriority(gBattlerAttacker) > 0
+                && gBattleMoves[gCurrentMove].target != MOVE_TARGET_ALL_BATTLERS
+                && gBattleMoves[gCurrentMove].target != MOVE_TARGET_OPPONENTS_FIELD
                 && GetBattlerSide(gBattlerAttacker) != GetBattlerSide(gBattlerTarget))
             {
                 CancelMultiTurnMoves(gBattlerAttacker);
@@ -4160,11 +4170,19 @@ static uq4_12_t GetSupremeOverlordModifier(u32 battler)
     return modifier;
 }
 
+static bool32 HadMoreThanHalfHpNowHasLess(u32 battler)
+{
+    // Had more than half of hp before, now has less
+     return (gBattleStruct->hpBefore[battler] >= gBattleMons[battler].maxHP / 2
+             && gBattleMons[battler].hp < gBattleMons[battler].maxHP / 2);
+}
+
 u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 moveArg)
 {
     u32 effect = 0;
     u32 speciesAtk, speciesDef;
     u32 moveType, move;
+    u32 species; //added wiz1989
     u32 i, j;
 
     if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
@@ -4279,15 +4297,15 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                         gBattleScripting.animArg1 = B_ANIM_HAIL_CONTINUES;
                         effect++;
                     #endif
-
                 }
                 break;
             }
         }
         if (effect != 0)
         {
-            gBattleCommunication[MULTISTRING_CHOOSER] = GetCurrentWeather();
-            BattleScriptPushCursorAndCallback(BattleScript_OverworldWeatherStarts);
+            //enhancement wiz1989
+            ChangeWeather(battler, ability);
+            //enhancement end
         }
         break;
     case ABILITYEFFECT_ON_SWITCHIN: // 0
@@ -5127,6 +5145,9 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 #endif
                 }
             }
+
+            if (effect)
+                gMultiHitCounter = 0; // Prevent multi-hit moves from hitting more than once after move has been absorbed.
         }
         break;
     case ABILITYEFFECT_MOVE_END: // Think contact abilities.
@@ -5191,9 +5212,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
              && TARGET_TURN_DAMAGED
              && IsBattlerAlive(battler)
-            // Had more than half of hp before, now has less
-             && gBattleStruct->hpBefore[battler] >= gBattleMons[battler].maxHP / 2
-             && gBattleMons[battler].hp < gBattleMons[battler].maxHP / 2
+             && HadMoreThanHalfHpNowHasLess(battler)
              && (gMultiHitCounter == 0 || gMultiHitCounter == 1)
              && !(TestSheerForceFlag(gBattlerAttacker, gCurrentMove))
              && CompareStat(battler, STAT_SPATK, MAX_STAT_STAGE, CMP_LESS_THAN))
@@ -5672,8 +5691,9 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
              && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
              && TARGET_TURN_DAMAGED
+             && (gMultiHitCounter == 0 || gMultiHitCounter == 1) // Activates after all hits from a multi-hit move.
              && IsBattlerAlive(gBattlerTarget)
-             && (gBattleMons[gBattlerTarget].hp <= gBattleMons[gBattlerTarget].maxHP / 2)
+             && HadMoreThanHalfHpNowHasLess(gBattlerTarget)
              && !(TestSheerForceFlag(gBattlerAttacker, gCurrentMove)))
             {
                 gBattlerAttacker = gBattlerTarget;
@@ -6048,6 +6068,29 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
         switch (gLastUsedAbility)
         {
         case ABILITY_FORECAST:
+            if ((IsBattlerWeatherAffected(battler, gBattleWeather)
+                 || gBattleWeather == B_WEATHER_NONE
+                 || !WEATHER_HAS_EFFECT) // Air Lock active
+                 && TryBattleFormChange(battler, FORM_CHANGE_BATTLE_WEATHER)) 
+            {
+                //enhancement wiz1989
+                //differentiate between regular forecast and self inflicted weather change
+                if (FlagGet(FLAG_INBATTLE_WEATHER_CHANGED)) {
+                    //BS is skipping some texts and popups as they have already been shown earlier
+                    BattleScriptPushCursorAndCallback(BattleScript_CastformFormChangeWithStringEnd3);
+
+                    effect++;
+                }
+                //regular forecast handling
+                else {
+                    BattleScriptPushCursorAndCallback(BattleScript_BattlerFormChangeWithStringEnd3);
+
+                    effect++;
+                }
+            }
+            FlagClear(FLAG_INBATTLE_WEATHER_CHANGED); //always reset the flag
+            //enhancement end
+            break;
         case ABILITY_FLOWER_GIFT:
             if ((IsBattlerWeatherAffected(battler, gBattleWeather)
                  || gBattleWeather == B_WEATHER_NONE
@@ -11220,3 +11263,22 @@ u8 GetBattlerType(u32 battler, u8 typeIndex)
     return types[typeIndex];
 }
 
+//enhancement wiz1989
+void ChangeWeather(u32 battler, u32 ability)
+{
+    u32 species;
+
+    species = gBattleMons[battler].species;
+    //special handling for CASTFORM weather change
+    if (IsCastform(battler) && ability == ABILITY_FORECAST)
+    {
+        FlagSet(FLAG_INBATTLE_WEATHER_CHANGED);
+        gBattleCommunication[MULTISTRING_CHOOSER] = GetCurrentWeather();
+        BattleScriptPushCursorAndCallback(BattleScript_CastformWeatherStarts);
+    }
+    else {
+        gBattleCommunication[MULTISTRING_CHOOSER] = GetCurrentWeather();
+        BattleScriptPushCursorAndCallback(BattleScript_OverworldWeatherStarts);
+    }
+}
+//enhancement end
