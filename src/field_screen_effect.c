@@ -1265,3 +1265,51 @@ static void Task_EnableScriptAfterMusicFade(u8 taskId)
         ScriptContext_Enable();
     }
 }
+static void Task_DoDoorScript(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    u8 objEventId = GetObjectEventIdByLocalIdAndMap(OBJ_EVENT_ID_PLAYER, 0, 0);
+    s16 *x = &task->data[2];
+    s16 *y = &task->data[3];
+
+    switch (task->tState)
+    {
+    case 0: //open door
+        FreezeObjectEvents();
+        PlayerGetDestCoords(x, y);
+        PlaySE(GetDoorSoundEffect(*x, *y - 1));
+        task->data[1] = FieldAnimateDoorOpen(*x, *y - 1);
+        task->tState++;
+        break;
+    case 1: //wait for door to open, then walk into door
+        if (task->data[1] < 0 || gTasks[task->data[1]].isActive != TRUE)
+        {
+            ObjectEventClearHeldMovementIfActive(&gObjectEvents[objEventId]);
+            ObjectEventSetHeldMovement(&gObjectEvents[objEventId], MOVEMENT_ACTION_WALK_NORMAL_UP);
+            task->tState++;
+        }
+        break;
+    case 2: //wait for movement, then close door
+        if (IsPlayerStandingStill())
+        {
+            task->data[1] = FieldAnimateDoorClose(*x, *y - 1);
+            ObjectEventClearHeldMovementIfFinished(&gObjectEvents[objEventId]);
+            SetPlayerVisibility(FALSE);
+            task->tState++;
+        }
+        break;
+    case 3: //wait for door to close, then start script
+        if (task->data[1] < 0 || gTasks[task->data[1]].isActive != TRUE)
+        {
+            ScriptContext_Enable();
+            task->tState++;
+        }
+	break;
+    }
+}
+
+void DoDoorScript(void)
+{
+    LockPlayerFieldControls();
+    CreateTask(Task_DoDoorScript, 10);
+}

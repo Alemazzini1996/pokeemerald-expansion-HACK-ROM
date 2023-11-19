@@ -924,6 +924,12 @@ static bool8 TryDoorWarp(struct MapPosition *position, u16 metatileBehavior, u8 
 
         if (MetatileBehavior_IsWarpDoor(metatileBehavior) == TRUE)
         {
+            if (TryStartCoordEventScript(position) == TRUE)
+            {
+                DoDoorScript();
+                return TRUE;
+            }
+
             warpEventId = GetWarpEventAtMapPosition(&gMapHeader, position);
             if (warpEventId != WARP_ID_NONE && IsWarpMetatileBehavior(metatileBehavior) == TRUE)
             {

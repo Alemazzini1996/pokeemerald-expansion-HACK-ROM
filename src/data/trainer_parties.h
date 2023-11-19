@@ -3483,7 +3483,7 @@ static const struct TrainerMon sParty_TateAndLiza1[] = {
     .lvl = 41,
     .species = SPECIES_ORANGURU,
     .heldItem = ITEM_MENTAL_HERB,
-    .ability = ABILITY_INNER_FOCUS
+    .ability = ABILITY_INNER_FOCUS,
     .moves = {MOVE_PSYCHIC, MOVE_TRICK_ROOM, MOVE_PROTECT, MOVE_INSTRUCT}
     },
     {
@@ -3491,7 +3491,7 @@ static const struct TrainerMon sParty_TateAndLiza1[] = {
     .lvl = 41,
     .species = SPECIES_HATTERENE,
     .heldItem = ITEM_LIFE_ORB,
-    .ability = ABILITY_MAGIC_BOUNCE
+    .ability = ABILITY_MAGIC_BOUNCE,
     .moves = {MOVE_EXPANDING_FORCE, MOVE_MYSTICAL_FIRE, MOVE_PROTECT, MOVE_DAZZLING_GLEAM}
     },
     {
@@ -3499,7 +3499,7 @@ static const struct TrainerMon sParty_TateAndLiza1[] = {
     .lvl = 41,
     .species = SPECIES_INDEEDEE_FEMALE,
     .heldItem = ITEM_PSYCHIC_SEED,
-    .ability = ABILITY_PSYCHIC_SURGE
+    .ability = ABILITY_PSYCHIC_SURGE,
     .moves = {MOVE_FOLLOW_ME, MOVE_EXPANDING_FORCE, MOVE_HELPING_HAND, MOVE_PROTECT}
     },
     {
@@ -3507,7 +3507,7 @@ static const struct TrainerMon sParty_TateAndLiza1[] = {
     .lvl = 41,
     .species = SPECIES_ALAKAZAM,
     .heldItem = ITEM_LIFE_ORB,
-    .ability = ABILITY_MAGIC_GUARD
+    .ability = ABILITY_MAGIC_GUARD,
     .moves = {MOVE_EXPANDING_FORCE, MOVE_DAZZLING_GLEAM, MOVE_SHADOW_BALL, MOVE_CALM_MIND}
     },
     {
@@ -3515,7 +3515,7 @@ static const struct TrainerMon sParty_TateAndLiza1[] = {
     .lvl = 42,
     .species = SPECIES_GALLADE,
     .heldItem = ITEM_GALLADITE,
-    .ability = ABILITY_JUSTIFIED
+    .ability = ABILITY_JUSTIFIED,
     .moves = {MOVE_SWORDS_DANCE, MOVE_SHADOW_SNEAK, MOVE_CLOSE_COMBAT, MOVE_ZEN_HEADBUTT}
     },
     {
@@ -3523,7 +3523,7 @@ static const struct TrainerMon sParty_TateAndLiza1[] = {
     .lvl = 42,
     .species = SPECIES_GARDEVOIR,
     .heldItem = ITEM_GARDEVOIRITE,
-    .ability = ABILITY_SYNCHRONIZE
+    .ability = ABILITY_SYNCHRONIZE,
     .moves = {MOVE_PSYCHIC, MOVE_MYSTICAL_FIRE, MOVE_HYPER_VOICE, MOVE_AURA_SPHERE}
     }
 };
