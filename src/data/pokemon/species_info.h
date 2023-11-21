@@ -9560,11 +9560,11 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_METAGROSS] =
     {
-        .baseHP        = 80,
+        .baseHP        = 90,
         .baseAttack    = 135,
         .baseDefense   = 130,
-        .baseSpeed     = 70,
-        .baseSpAttack  = 95,
+        .baseSpeed     = 95,
+        .baseSpAttack  = 60,
         .baseSpDefense = 90,
         .types = { TYPE_STEEL, TYPE_PSYCHIC },
         .catchRate = 3,
