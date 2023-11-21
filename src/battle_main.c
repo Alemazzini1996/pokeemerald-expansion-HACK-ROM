@@ -124,6 +124,7 @@ static void SpriteCB_UnusedBattleInit_Main(struct Sprite *sprite);
 static void TrySpecialEvolution(void);
 static u32 Crc32B (const u8 *data, u32 size);
 static u32 GeneratePartyHash(const struct Trainer *trainer, u32 i);
+u16 HasLevelEvolution(u16 species, u8 level);
 
 EWRAM_DATA u16 gBattle_BG0_X = 0;
 EWRAM_DATA u16 gBattle_BG0_Y = 0;
@@ -1971,6 +1972,8 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
     u8 fixedIV;
     s32 i, j;
     u8 monsCount;
+    u8 level;
+    
     if (battleTypeFlags & BATTLE_TYPE_TRAINER && !(battleTypeFlags & (BATTLE_TYPE_FRONTIER
                                                                         | BATTLE_TYPE_EREADER_TRAINER
                                                                         | BATTLE_TYPE_TRAINER_HILL)))
@@ -1998,6 +2001,39 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
             u32 otIdType = OT_ID_RANDOM_NO_SHINY;
             u32 fixedOtId = 0;
 
+            int rand_diff = Random() % 5;
+			switch(rand_diff)
+			{
+				case 0:
+					rand_diff = 1;
+					break;
+				case 1:
+					rand_diff = 0;
+					break;
+				case 2:
+					rand_diff = -1;
+					break;
+				case 3:
+					rand_diff = -2;
+					break;
+				case 4:
+					rand_diff = -3;
+			}
+
+            level = GetHighestLevelInPlayerParty();
+                    if (level + partyData[i].lvl > 100)
+                    {
+                        level = 100;
+                    }
+                    else if (level + partyData[i].lvl < 1)
+                    {
+                        level = 1;
+                    }
+                    else
+                    {
+                        level = level + rand_diff;
+                    }
+
             if (trainer->doubleBattle == TRUE)
                 personalityValue = 0x80;
             else if (trainer->encounterMusic_gender & F_TRAINER_FEMALE)
@@ -2017,7 +2053,11 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
                 otIdType = OT_ID_PRESET;
                 fixedOtId = HIHALF(personalityValue) ^ LOHALF(personalityValue);
             }
-            CreateMon(&party[i], partyData[i].species, partyData[i].lvl, 0, TRUE, personalityValue, otIdType, fixedOtId);
+			if(HasLevelEvolution(partyData[i].species, level))
+                CreateMon(&party[i], HasLevelEvolution(partyData[i].species, level), level, 0, TRUE, personalityValue, otIdType, fixedOtId);
+            else
+                CreateMon(&party[i], partyData[i].species, level, 0, TRUE, personalityValue, otIdType, fixedOtId);
+            
             SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
 
             CustomTrainerPartyAssignMoves(&party[i], &partyData[i]);
@@ -5779,4 +5819,16 @@ bool32 IsWildMonSmart(void)
 #else
     return FALSE;
 #endif
+}
+
+u16 HasLevelEvolution(u16 species, u8 level)
+{
+    if(gEvolutionTable[species][0].param && gEvolutionTable[species][0].param <= level)
+    {
+        if(HasLevelEvolution(gEvolutionTable[species][0].targetSpecies, level))
+            return HasLevelEvolution(gEvolutionTable[species][0].targetSpecies, level);
+        else
+            return gEvolutionTable[species][0].targetSpecies;
+    }
+    return 0;
 }
