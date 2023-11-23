@@ -513,3 +513,31 @@ MossdeepCity_SpaceCenter_2F_Text_StevenThankYouComeSeeMeAtHome:
 	.string "after this.\p"
 	.string "Oh, yes, I don't live in RUSTBORO CITY.\n"
 	.string "I live right here on this island.$"
+
+MossdeepCity_SpaceCenter_2F_Eventscript_Scientist_1::
+    lock
+	faceplayer
+    msgbox MossdeepCity_SpaceCenter_2F_Text_SCientist_1, MSGBOX_DEFAULT
+    release
+    end
+
+MossdeepCity_SpaceCenter_2F_Eventscript_Scientist_2::
+    lock
+	faceplayer
+    msgbox MossdeepCity_SpaceCenter_2F_Text_SCientist_2, MSGBOX_DEFAULT
+    release
+    end
+
+MossdeepCity_SpaceCenter_2F_Text_SCientist_1:
+    .string "The preparation for the launch\n"
+	.string "is almost complete.\p"
+	.string "Be sure to put the suit on before\n"
+	.string "boarding the rocket.$"
+
+MossdeepCity_SpaceCenter_2F_Text_SCientist_2:
+    .string "I'm calculating the perfect\n"
+	.string "trajectory for the launch and\l"
+	.string "I'm updating it in real time.\p"
+	.string "This will ensure the best landing\n"
+	.string "possible on the meteorite.$"
+	
