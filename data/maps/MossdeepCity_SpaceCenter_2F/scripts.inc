@@ -540,4 +540,4 @@ MossdeepCity_SpaceCenter_2F_Text_SCientist_2:
 	.string "I'm updating it in real time.\p"
 	.string "This will ensure the best landing\n"
 	.string "possible on the meteorite.$"
-	
+
