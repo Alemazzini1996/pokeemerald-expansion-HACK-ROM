@@ -2011,13 +2011,13 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
 					rand_diff = 0;
 					break;
 				case 2:
-					rand_diff = -1;
+					rand_diff = 0;
 					break;
 				case 3:
-					rand_diff = -2;
+					rand_diff = 0;
 					break;
 				case 4:
-					rand_diff = -3;
+					rand_diff = -1;
 			}
 
             level = GetHighestLevelInPlayerParty();
