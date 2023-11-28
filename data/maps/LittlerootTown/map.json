@@ -146,6 +146,20 @@
       "elevation": 0,
       "dest_map": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 18,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_CREATORS_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 32,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_CAVE_OF_TITANS",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

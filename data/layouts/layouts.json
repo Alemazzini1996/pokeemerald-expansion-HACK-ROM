@@ -4420,6 +4420,26 @@
       "secondary_tileset": "gTileset_SpaceRocket",
       "border_filepath": "data/layouts/Space_Rocket/border.bin",
       "blockdata_filepath": "data/layouts/Space_Rocket/map.bin"
+    },
+    {
+      "id": "LAYOUT_CREATORS_HOUSE",
+      "name": "CreatorsHouse_Layout",
+      "width": 20,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "border_filepath": "data/layouts/CreatorsHouse/border.bin",
+      "blockdata_filepath": "data/layouts/CreatorsHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_CAVE_OF_TITANS",
+      "name": "CaveOfTitans_Layout",
+      "width": 25,
+      "height": 25,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/CaveOfTitans/border.bin",
+      "blockdata_filepath": "data/layouts/CaveOfTitans/map.bin"
     }
   ]
 }

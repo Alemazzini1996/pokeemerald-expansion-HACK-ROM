@@ -1066,3 +1066,7 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Space_Rocket/scripts.inc"
     .include "data/scripts/dexnav.inc"
     
+
+	.include "data/maps/CreatorsHouse/scripts.inc"
+
+	.include "data/maps/CaveOfTitans/scripts.inc"
