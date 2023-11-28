@@ -46,7 +46,7 @@ LittlerootTown_BrendansHouse_2F_GamecubeEnterCheatCode::
 	goto_if_eq VAR_RESULT, 5, CheatCodeBestBall
 	goto_if_eq VAR_RESULT, 6, CheatCodeEviesDayOff
 	goto_if_eq VAR_RESULT, 7, CheatCodeIvysDayOff
-	goto_if_eq VAR_RESULT, 8, CheatCodeUnHatted
+	goto_if_eq VAR_RESULT, 8, CheatCodeStopTheCap
 	end
 
 CheatCodeFailed::
@@ -138,18 +138,18 @@ CheatCodeIvysDayOffOff::
 	releaseall
 	end
 
-CheatCodeUnHatted::
+CheatCodeStopTheCap::
 	msgbox EnterCheatCode_SucceededText, MSGBOX_DEFAULT
-	goto_if_unset FLAG_NO_LEVEL_CAP, CheatCodeUnhattedOff
-	goto_if_set FLAG_NO_LEVEL_CAP, CheatCodeUnhattedOn
+	goto_if_unset FLAG_NO_LEVEL_CAP, CheatCodeStopTheCapOff
+	goto_if_set FLAG_NO_LEVEL_CAP, CheatCodeStopTheCapOn
 
-CheatCodeUnhattedOff::
-	msgbox CheatCodeUnhattedOff_Text, MSGBOX_DEFAULT
+CheatCodeStopTheCapOff::
+	msgbox CheatCodeStopTheCapOff_Text, MSGBOX_DEFAULT
 	releaseall
 	end
 
-CheatCodeUnhattedOn::
-	msgbox CheatCodeUnhattedOn_Text, MSGBOX_DEFAULT
+CheatCodeStopTheCapOn::
+	msgbox CheatCodeStopTheCapOn_Text, MSGBOX_DEFAULT
 	releaseall
 	end
 
@@ -205,11 +205,11 @@ CheatCodeIvysDayOffOff_Text:
 	.string "You get the sense Ivy has returned from\n"
 	.string "her time off. Effect of EVs enabled.$"
 
-CheatCodeUnhattedOff_Text:
+CheatCodeStopTheCapOff_Text:
 	.string "The rush of energy subsides.\n"
 	.string "Gym leader level caps reinstated.$"
 
-CheatCodeUnhattedOn_Text:
+CheatCodeStopTheCapOn_Text:
 	.string "A rush of energy lets you surpass your\n"
 	.string "limits! Gym leader level caps removed.$"
 
@@ -472,11 +472,11 @@ PlayersHouse_2F_Text_HowDoYouLikeYourRoom:
 
 PlayersHouse_2F_Text_Notebook:
 	.string "{PLAYER} opened the Codes' notebook.\p"
-	.string "INFINITE CANDIES: Nomnomnom.\p"
+	.string "INFINITE CANDIES: TrickrTreat.\p"
 	.string "100% CATCH RATE: BestBall.\p"
 	.string "EV IGNORED IN STAT CALC: EviesDayOff.\p"
 	.string "IV IGNORED IN STAT CALC: IvysDayOff.\p"
-	.string "LEVEL CAP REMOVED: UnHatted.$"
+	.string "LEVEL CAP REMOVED: StopTheCap.$"
 
 Common_Text_LookCloserAtMap:
 	.string "{PLAYER} took a closer look at the\n"

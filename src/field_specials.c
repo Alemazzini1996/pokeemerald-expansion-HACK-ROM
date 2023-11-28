@@ -4596,14 +4596,14 @@ void EnterCheatCode(void)
 
 void GetCheatCodeFeedback(void)
 {
-    static const u8 sText_CheatCodeCandyJar[] = _("Nomnomnom"); // Infinite rare candy item
+    static const u8 sText_CheatCodeCandyJar[] = _("TrickrTreat"); // Infinite rare candy item
     static const u8 sText_CheatCodeNeed4Speed[] = _("Need4Speed"); // Mach bike run with grindrun
     static const u8 sText_CheatCodeSeenEmAll[] = _("SeenEmAll"); // Mark entire Pokedex as seen
     static const u8 sText_CheatCodeCaughtEmAll[] = _("CaughtEmAll"); // Mark entire Pokedex as caught
     static const u8 sText_CheatCodeBestBall[] = _("BestBall"); // 100% catch rate with all balls
     static const u8 sText_CheatCodeEviesDayOff[] = _("EviesDayOff"); // EVs are ignored from stat calculation
     static const u8 sText_CheatCodeIvysDayOff[] = _("IvysDayOff"); // IVs are ignored from stat calculation
-    static const u8 sText_CheatCodeUnHatted[] = _("UnHatted"); // Level caps are removed
+    static const u8 sText_CheatCodeStopTheCap[] = _("StopTheCap"); // Level caps are removed
     struct Pokemon *party = gPlayerParty;
     u32 i;
 
@@ -4698,7 +4698,7 @@ void GetCheatCodeFeedback(void)
     }
 
     // Level caps are removed
-    else if (!StringCompare(gStringVar2, sText_CheatCodeUnHatted))
+    else if (!StringCompare(gStringVar2, sText_CheatCodeStopTheCap))
     {
         if (FlagGet(FLAG_NO_LEVEL_CAP))
             FlagClear(FLAG_NO_LEVEL_CAP);
