@@ -1748,3 +1748,22 @@ const u16 gTilesetPalettes_PetalburgLeoBSnow[][16] =
 };
 
 const u32 gTilesetTiles_PetalburgLeoBSnow[] = INCBIN_U32("data/tilesets/secondary/petalburg_leo_bsnow/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Oldale[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/oldale/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oldale/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oldale/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oldale/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oldale/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oldale/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oldale/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oldale/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oldale/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oldale/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oldale/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oldale/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oldale/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Oldale[] = INCBIN_U32("data/tilesets/secondary/oldale/tiles.4bpp.lz");
