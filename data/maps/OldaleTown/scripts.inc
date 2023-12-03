@@ -26,7 +26,7 @@ OldaleTown_EventScript_BlockWestEntrance::
 	return
 
 OldaleTown_EventScript_MoveMartEmployee::
-	setobjectxyperm LOCALID_MART_EMPLOYEE, 11, 22
+	setobjectxyperm LOCALID_MART_EMPLOYEE, 11, 23
 	setobjectmovementtype LOCALID_MART_EMPLOYEE, MOVEMENT_TYPE_FACE_DOWN
 	return
 
@@ -110,6 +110,7 @@ OldaleTown_Movement_EmployeeEast:
 	walk_up
 	walk_up
 	walk_up
+	walk_up
 	walk_right
 	walk_right
 	walk_up
@@ -121,6 +122,7 @@ OldaleTown_Movement_EmployeeEast:
 	step_end
 
 OldaleTown_Movement_EmployeeWest:
+	walk_up
 	walk_up
 	walk_up
 	walk_up
@@ -144,6 +146,7 @@ OldaleTown_Movement_EmployeeSouth:
 	walk_up
 	walk_up
 	walk_up
+	walk_up
 	walk_right
 	walk_right
 	walk_up
@@ -155,6 +158,7 @@ OldaleTown_Movement_EmployeeSouth:
 	step_end
 
 OldaleTown_Movement_EmployeeNorth:
+	walk_up
 	walk_up
 	walk_up
 	walk_up
@@ -195,6 +199,7 @@ OldaleTown_Movement_PlayerEast:
 	walk_up
 	walk_up
 	walk_up
+	walk_up
 	walk_right
 	walk_right
 	walk_up
@@ -205,6 +210,7 @@ OldaleTown_Movement_PlayerEast:
 
 OldaleTown_Movement_PlayerWest:
 	walk_left
+	walk_up
 	walk_up
 	walk_up
 	walk_up
@@ -227,6 +233,7 @@ OldaleTown_Movement_PlayerSouth:
 	walk_up
 	walk_up
 	walk_up
+	walk_up
 	walk_right
 	walk_right
 	walk_up
@@ -236,6 +243,7 @@ OldaleTown_Movement_PlayerSouth:
 	step_end
 
 OldaleTown_Movement_PlayerNorth:
+	walk_up
 	walk_up
 	walk_up
 	walk_up
@@ -473,3 +481,36 @@ OldaleTown_Text_TownSign:
 	.string "OLDALE TOWN\n"
 	.string "“Where things start off scarce.”$"
 
+OldaleTown_EventScript_OldMan::
+    lock
+	msgbox OldaleTown_Text_OldMan, MSGBOX_DEFAULT
+	release
+	end
+
+OldaleTown_Text_OldMan:
+    .string "Me and my wife have run this shop\n"
+    .string "for years, when Oldale Town used\l"
+    .string "to be the link between Petalburg and\l"
+    .string "Slateport, thriving on the trades\l"
+    .string "among the two cities.\p"
+    .string "But with the construction of Rusturf\n"
+    .string "Tunnel, business has gone\l"
+	.string "worse day by day.\p"
+    .string "We keep working for the few that still\n"
+    .string "walk by from time to time.$"
+
+OldaleTown_EventScript_OldWoman::
+    lock
+	msgbox OldaleTown_Text_OldWoman, MSGBOX_DEFAULT
+	release
+	end
+
+OldaleTown_Text_OldWoman:
+    .string "My husband founded this shop\n"
+	.string "years ago, I almost forgot how\l"
+	.string "many...\p"
+    .string "Since the beginning of the works\n"
+	.string "in Rusturf Tunnel, he has become\l"
+	.string "increasingly demoralized.\p"
+	.string "I hope he can find again the will\n"
+	.string "and the happiness he used to have...$"
