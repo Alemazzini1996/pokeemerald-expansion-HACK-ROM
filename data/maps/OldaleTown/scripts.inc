@@ -35,7 +35,7 @@ OldaleTown_EventScript_TownSign::
 	end
 
 OldaleTown_EventScript_Girl::
-	msgbox OldaleTown_Text_SavingMyProgress, MSGBOX_NPC
+	msgbox OldaleTown_Text_LostItem, MSGBOX_NPC
 	end
 
 OldaleTown_EventScript_MartEmployee::
@@ -425,9 +425,10 @@ OldaleTown_Movement_ReturnToOriginalPosition:
 	walk_left
 	step_end
 
-OldaleTown_Text_SavingMyProgress:
-	.string "I want to take a rest, so I'm saving my\n"
-	.string "progress.$"
+OldaleTown_Text_LostItem:
+	.string "I was going for a jog around here\n"
+	.string "when I lost one of my items.\p"
+	.string "I hope I can find it..$"
 
 OldaleTown_Text_IWorkAtPokemonMart:
 	.string "Hi!\n"

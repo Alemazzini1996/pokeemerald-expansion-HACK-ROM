@@ -1019,3 +1019,12 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "I have something to show you.\n"
 	.string "Let's go to my LAB.$"
 
+Megastone_Item::
+    giveitem ITEM_TYRANITARITE
+	removeobject OBJ_EVENT_GFX_MEGA_STONE
+	end
+
+Ball_Item::
+    giveitem ITEM_TM35
+	removeobject OBJ_EVENT_GFX_ITEM_BALL
+	end
