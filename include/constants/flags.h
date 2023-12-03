@@ -1174,7 +1174,7 @@
 #define FLAG_ITEM_TYRANITARITE_LITTLEROOT                           0x465 // Littleroot Megastone
 #define FLAG_ITEM_ANTIDOTE_OLDALE                                   0x466 // Oldale Item
 #define FLAG_ITEM_FLAMETHROWER_LITTLEROOT                           0x467 // Littleroot Item
-#define FLAG_UNUSED_0x468                                           0x468 // Unused Flag
+#define FLAG_ITEM_ULTRABALL_ROUTE_101                               0x468 // Route 101 Item
 #define FLAG_ITEM_MT_PYRE_2F_ULTRA_BALL                             0x469
 #define FLAG_ITEM_MT_PYRE_4F_SEA_INCENSE                            0x46A
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_WEST_MAX_REVIVE                 0x46B

@@ -669,3 +669,7 @@ Ball_Item_Littleroot_1::
 Megastone_Item_Littleroot_1::
     finditem ITEM_TYRANITARITE
 	end
+
+Ball_Item_Route_101::
+    finditem ITEM_ULTRA_BALL
+	end

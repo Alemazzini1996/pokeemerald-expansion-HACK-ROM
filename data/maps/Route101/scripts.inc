@@ -233,8 +233,12 @@ Route101_Movement_Unused2:
 	walk_up
 	step_end
 
-Route101_EventScript_Youngster::
+Route101_EventScript_Youngster_1::
 	msgbox Route101_Text_TakeTiredPokemonToPokeCenter, MSGBOX_NPC
+	end
+
+Route101_EventScript_Youngster_2::
+	msgbox Route101_Text_GoOnAnAdventure, MSGBOX_NPC
 	end
 
 Route101_EventScript_Boy::
@@ -316,6 +320,12 @@ Route101_Text_TakeTiredPokemonToPokeCenter:
 	.string "a POKéMON CENTER.\p"
 	.string "There's a POKéMON CENTER in OLDALE\n"
 	.string "TOWN right close by.$"
+
+Route101_Text_GoOnAnAdventure:
+    .string "I got my starter from PROF. BIRCH\n"
+	.string "today, so I can go on my own\l"
+	.string "adventure around the region.\p"
+	.string "I want to become a POKéMON master!$"
 
 Route101_Text_WildPokemonInTallGrass:
 	.string "Wild POKéMON will jump out at you in\n"
