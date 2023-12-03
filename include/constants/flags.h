@@ -1171,9 +1171,9 @@
 #define FLAG_ITEM_NEW_MAUVILLE_FULL_HEAL                            0x462
 #define FLAG_ITEM_NEW_MAUVILLE_PARALYZE_HEAL                        0x463
 #define FLAG_ITEM_AQUA_HIDEOUT_B1F_MASTER_BALL                      0x464
-#define FLAG_ITEM_OLD_MAGMA_HIDEOUT_B1F_MASTER_BALL                 0x465 // Unused Flag, leftover from the Ruby Magma hideout
-#define FLAG_ITEM_OLD_MAGMA_HIDEOUT_B1F_MAX_ELIXIR                  0x466 // Unused Flag, leftover from the Ruby Magma hideout
-#define FLAG_ITEM_OLD_MAGMA_HIDEOUT_B2F_NEST_BALL                   0x467 // Unused Flag, leftover from the Ruby Magma hideout
+#define FLAG_ITEM_TYRANITARITE_LITTLEROOT                           0x465 // Littleroot Megastone
+#define FLAG_ITEM_ANTIDOTE_OLDALE                                   0x466 // Oldale Item
+#define FLAG_ITEM_FLAMETHROWER_LITTLEROOT                           0x467 // Littleroot Item
 #define FLAG_UNUSED_0x468                                           0x468 // Unused Flag
 #define FLAG_ITEM_MT_PYRE_2F_ULTRA_BALL                             0x469
 #define FLAG_ITEM_MT_PYRE_4F_SEA_INCENSE                            0x46A

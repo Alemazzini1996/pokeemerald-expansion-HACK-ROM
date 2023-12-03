@@ -657,3 +657,15 @@ MagmaHideout_4F_EventScript_ItemMaxRevive::
 MagmaHideout_3F_3R_EventScript_ItemEscapeRope::
 	finditem ITEM_ESCAPE_ROPE
 	end
+
+Ball_Item_Oldale_1::
+    finditem ITEM_ANTIDOTE
+	end
+
+Ball_Item_Littleroot_1::
+    finditem ITEM_TM35
+	end
+
+Megastone_Item_Littleroot_1::
+    finditem ITEM_TYRANITARITE
+	end
