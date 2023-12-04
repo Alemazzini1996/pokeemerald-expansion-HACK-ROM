@@ -353,3 +353,22 @@ Route103_Text_RouteSign:
 	.string "ROUTE 103\n"
 	.string "{DOWN_ARROW} OLDALE TOWN$"
 
+Route103_EventScript_RouteSign_1::
+	msgbox Route103_Text_RouteSign_1, MSGBOX_SIGN
+	end
+
+Route103_Text_RouteSign_1:
+    .string "Remember to explore; there are\n"
+	.string "a lot of hidden items scattered\l"
+	.string "around in the various routes!$"
+
+Route103_EventScript_Fisherman::
+    msgbox Route103_Text_Fisherman, MSGBOX_DEFAULT
+	end
+
+Route103_Text_Fisherman:
+    .string "I bought this small house in this\n"
+	.string "chunk of land so I can relax and\l"
+	.string "fish all day...\p"
+	.string "But those swimmers battle so much\n"
+	.string "that they scare all the POKéMON!$"

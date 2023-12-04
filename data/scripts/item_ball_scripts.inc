@@ -673,3 +673,7 @@ Megastone_Item_Littleroot_1::
 Ball_Item_Route_101::
     finditem ITEM_ULTRA_BALL
 	end
+
+Ball_Item_Route_103::
+    finditem ITEM_REVIVE
+	end
