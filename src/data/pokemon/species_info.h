@@ -9239,13 +9239,13 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_GLALIE] =
     {
-        .baseHP        = 80,
-        .baseAttack    = 80,
-        .baseDefense   = 80,
-        .baseSpeed     = 80,
-        .baseSpAttack  = 80,
-        .baseSpDefense = 80,
-        .types = { TYPE_ICE, TYPE_ICE},
+        .baseHP        = 90,
+        .baseAttack    = 95,
+        .baseDefense   = 90,
+        .baseSpeed     = 100,
+        .baseSpAttack  = 65,
+        .baseSpDefense = 90,
+        .types = { TYPE_ICE, TYPE_DARK},
         .catchRate = 75,
         .expYield = 168,
         .evYield_HP        = 2,
@@ -21907,13 +21907,13 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_GLALIE_MEGA] =
     {
-        .baseHP        = 80,
+        .baseHP        = 90,
         .baseAttack    = 120,
-        .baseDefense   = 80,
-        .baseSpeed     = 100,
-        .baseSpAttack  = 120,
-        .baseSpDefense = 80,
-        .types = { TYPE_ICE, TYPE_ICE},
+        .baseDefense   = 110,
+        .baseSpeed     = 120,
+        .baseSpAttack  = 80,
+        .baseSpDefense = 110,
+        .types = { TYPE_ICE, TYPE_DARK},
         .catchRate = 75,
         .expYield = 203,
         .evYield_HP        = 2,
