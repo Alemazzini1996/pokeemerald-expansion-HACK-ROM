@@ -175,7 +175,7 @@
       "id": "LAYOUT_ROUTE102",
       "name": "Route102_Layout",
       "width": 50,
-      "height": 20,
+      "height": 30,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Route102/border.bin",
@@ -4440,6 +4440,16 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/CaveOfTitans/border.bin",
       "blockdata_filepath": "data/layouts/CaveOfTitans/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE102HUT",
+      "name": "Route102Hut_Layout",
+      "width": 6,
+      "height": 5,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "border_filepath": "data/layouts/Route102Hut/border.bin",
+      "blockdata_filepath": "data/layouts/Route102Hut/map.bin"
     }
   ]
 }

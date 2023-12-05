@@ -2,6 +2,10 @@ Route102_EventScript_ItemPotion::
 	finditem ITEM_POTION
 	end
 
+Route102_EventScript_ItemRareCandy::
+	finditem ITEM_RARE_CANDY
+	end
+
 Route103_EventScript_ItemGuardSpec::
 	finditem ITEM_GUARD_SPEC
 	end
