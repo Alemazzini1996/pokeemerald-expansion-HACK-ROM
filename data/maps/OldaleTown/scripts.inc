@@ -142,6 +142,10 @@ OldaleTown_Movement_EmployeeWest:
 OldaleTown_Movement_EmployeeSouth:
 	walk_up
 	walk_up
+	delay_16
+	face_down
+	delay_16
+	face_up
 	walk_up
 	walk_up
 	walk_up
@@ -227,7 +231,11 @@ OldaleTown_Movement_PlayerWest:
 
 OldaleTown_Movement_PlayerSouth:
 	walk_left
+	face_right
+	delay_16
 	walk_right
+	face_up
+	delay_16
 	walk_up
 	walk_up
 	walk_up
