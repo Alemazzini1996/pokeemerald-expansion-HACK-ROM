@@ -25,7 +25,7 @@
     },
     {
       "map": "MAP_ROUTE103",
-      "offset": -19,
+      "offset": -24,
       "direction": "down"
     }
   ],
@@ -42,7 +42,7 @@
     {
       "type": "hidden_item",
       "x": 43,
-      "y": 37,
+      "y": 27,
       "elevation": 0,
       "item": "ITEM_RARE_CANDY",
       "flag": "FLAG_TEMP_SKIP_GABBY_INTERVIEW"
