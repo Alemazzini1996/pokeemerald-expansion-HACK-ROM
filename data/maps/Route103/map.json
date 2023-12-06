@@ -22,6 +22,16 @@
       "map": "MAP_ROUTE110",
       "offset": -60,
       "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE135",
+      "offset": 24,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_ROUTE135",
+      "offset": 19,
+      "direction": "up"
     }
   ],
   "object_events": [
@@ -301,7 +311,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
       "x": 30,
-      "y": 12,
+      "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,

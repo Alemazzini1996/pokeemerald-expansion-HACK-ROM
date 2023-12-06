@@ -1072,3 +1072,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/CaveOfTitans/scripts.inc"
 
 	.include "data/maps/Route102Hut/scripts.inc"
+
+	.include "data/maps/Route135/scripts.inc"
