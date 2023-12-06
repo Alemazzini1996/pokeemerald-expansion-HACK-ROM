@@ -363,7 +363,10 @@ Route103_Text_RouteSign_1:
 	.string "around in the various routes!$"
 
 Route103_EventScript_Fisherman::
+    lockall
+	faceplayer
     msgbox Route103_Text_Fisherman, MSGBOX_DEFAULT
+	releaseall
 	end
 
 Route103_Text_Fisherman:
