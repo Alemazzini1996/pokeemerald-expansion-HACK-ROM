@@ -27,8 +27,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_4",
-      "x": 16,
-      "y": 18,
+      "x": 28,
+      "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -40,7 +40,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WALLY",
-      "x": 25,
+      "x": 22,
       "y": 10,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -54,7 +54,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_1",
       "x": 8,
-      "y": 22,
+      "y": 23,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -66,8 +66,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
-      "x": 20,
-      "y": 10,
+      "x": 34,
+      "y": 9,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
       "movement_range_x": 0,
@@ -79,7 +79,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
-      "x": 25,
+      "x": 22,
       "y": 10,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -118,8 +118,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_2",
-      "x": 12,
-      "y": 15,
+      "x": 18,
+      "y": 10,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -190,7 +190,7 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 8,
+      "x": 15,
       "y": 10,
       "elevation": 3,
       "var": "VAR_PETALBURG_CITY_STATE",
@@ -199,7 +199,7 @@
     },
     {
       "type": "trigger",
-      "x": 8,
+      "x": 15,
       "y": 11,
       "elevation": 3,
       "var": "VAR_PETALBURG_CITY_STATE",
@@ -208,7 +208,7 @@
     },
     {
       "type": "trigger",
-      "x": 8,
+      "x": 15,
       "y": 12,
       "elevation": 3,
       "var": "VAR_PETALBURG_CITY_STATE",
@@ -217,7 +217,7 @@
     },
     {
       "type": "trigger",
-      "x": 8,
+      "x": 15,
       "y": 13,
       "elevation": 3,
       "var": "VAR_PETALBURG_CITY_STATE",
@@ -226,7 +226,7 @@
     },
     {
       "type": "trigger",
-      "x": 4,
+      "x": 10,
       "y": 10,
       "elevation": 3,
       "var": "VAR_SCOTT_PETALBURG_ENCOUNTER",
@@ -235,7 +235,7 @@
     },
     {
       "type": "trigger",
-      "x": 4,
+      "x": 10,
       "y": 11,
       "elevation": 3,
       "var": "VAR_SCOTT_PETALBURG_ENCOUNTER",
@@ -244,7 +244,7 @@
     },
     {
       "type": "trigger",
-      "x": 4,
+      "x": 10,
       "y": 12,
       "elevation": 3,
       "var": "VAR_SCOTT_PETALBURG_ENCOUNTER",
@@ -253,7 +253,7 @@
     },
     {
       "type": "trigger",
-      "x": 4,
+      "x": 10,
       "y": 13,
       "elevation": 3,
       "var": "VAR_SCOTT_PETALBURG_ENCOUNTER",
