@@ -19,7 +19,7 @@ PetalburgCity_OnTransition:
 	end
 
 PetalburgCity_EventScript_MoveGymBoyToWestEntrance::
-	setobjectxyperm LOCALID_GYM_BOY, 5, 11
+	setobjectxyperm LOCALID_GYM_BOY, 13, 11
 	return
 
 PetalburgCity_EventScript_DisableMapNameAndMusic::
@@ -356,7 +356,6 @@ PetalburgCity_Movement_Delay48::
 PetalburgCity_Movement_BoyApproachPlayer0:
 	walk_right
 	walk_right
-	walk_right
 	walk_in_place_faster_up
 	step_end
 
@@ -368,13 +367,11 @@ PetalburgCity_Movement_BoyApproachPlayer1:
 PetalburgCity_Movement_BoyApproachPlayer2:
 	walk_right
 	walk_right
-	walk_right
 	walk_in_place_faster_down
 	step_end
 
 PetalburgCity_Movement_BoyApproachPlayer3:
 	walk_down
-	walk_right
 	walk_right
 	walk_right
 	walk_in_place_faster_down
