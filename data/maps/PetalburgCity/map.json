@@ -131,8 +131,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SCOTT",
-      "x": 13,
-      "y": 12,
+      "x": 18,
+      "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -191,15 +191,6 @@
     {
       "type": "trigger",
       "x": 15,
-      "y": 10,
-      "elevation": 3,
-      "var": "VAR_PETALBURG_CITY_STATE",
-      "var_value": "0",
-      "script": "PetalburgCity_EventScript_ShowGymToPlayer0"
-    },
-    {
-      "type": "trigger",
-      "x": 15,
       "y": 11,
       "elevation": 3,
       "var": "VAR_PETALBURG_CITY_STATE",
@@ -223,15 +214,6 @@
       "var": "VAR_PETALBURG_CITY_STATE",
       "var_value": "0",
       "script": "PetalburgCity_EventScript_ShowGymToPlayer3"
-    },
-    {
-      "type": "trigger",
-      "x": 10,
-      "y": 10,
-      "elevation": 3,
-      "var": "VAR_SCOTT_PETALBURG_ENCOUNTER",
-      "var_value": "0",
-      "script": "PetalburgCity_EventScript_Scott0"
     },
     {
       "type": "trigger",
@@ -320,7 +302,7 @@
     },
     {
       "type": "hidden_item",
-      "x": 2,
+      "x": 1,
       "y": 39,
       "elevation": 3,
       "item": "ITEM_RARE_CANDY",

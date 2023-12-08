@@ -319,6 +319,14 @@
       "elevation": 0,
       "item": "ITEM_REVIVAL_HERB",
       "flag": "FLAG_ADVENTURE_STARTED"
+    },
+    {
+      "type": "hidden_item",
+      "x": 31,
+      "y": 27,
+      "elevation": 0,
+      "item": "ITEM_RARE_CANDY",
+      "flag": "FLAG_TEMP_SKIP_GABBY_INTERVIEW"
     }
   ]
 }
