@@ -116,6 +116,8 @@ PetalburgCity_Movement_WalkToWallyHousePlayer:
 	walk_left
 	walk_left
 	walk_left
+	walk_left
+	walk_left
 	walk_up
 	walk_up
 	walk_up
@@ -132,6 +134,8 @@ PetalburgCity_Movement_WalkToWallyHouseWallysDad:
 	delay_8
 	walk_down
 	walk_down
+	walk_left
+	walk_left
 	walk_left
 	walk_left
 	walk_left
