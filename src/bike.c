@@ -148,6 +148,19 @@ static u8 GetMachBikeTransition(u8 *dirTraveling)
 {
     // if the dir updated before this function, get the relevent new direction to check later.
     u8 direction = GetPlayerMovementDirection();
+    
+    // fix direction when moving on sideways stairs
+    switch (direction)
+    {
+    case DIR_SOUTHWEST:
+    case DIR_NORTHWEST:
+        direction = DIR_WEST;
+        break;
+    case DIR_SOUTHEAST:
+    case DIR_NORTHEAST:
+        direction = DIR_EAST;
+        break;
+    }
 
     // is the player standing still?
     if (*dirTraveling == 0)
@@ -199,7 +212,7 @@ static void MachBikeTransition_TurnDirection(u8 direction)
         Bike_SetBikeStill();
     }
     else
-    {
+    {        
         MachBikeTransition_FaceDirection(playerObjEvent->facingDirection);
     }
 }
@@ -265,7 +278,9 @@ static void MachBikeTransition_TrySpeedUp(u8 direction)
         }
         else
         {
-            // we did not hit anything that can slow us down, so perform the advancement callback depending on the bikeFrameCounter and try to increase the mach bike's speed.
+            if (ObjectMovingOnRockStairs(playerObjEvent, direction) && gPlayerAvatar.bikeFrameCounter > 1)
+                gPlayerAvatar.bikeFrameCounter--;
+            
             sMachBikeSpeedCallbacks[gPlayerAvatar.bikeFrameCounter](direction);
             gPlayerAvatar.bikeSpeed = gPlayerAvatar.bikeFrameCounter + (gPlayerAvatar.bikeFrameCounter >> 1); // same as dividing by 2, but compiler is insistent on >> 1
             if (gPlayerAvatar.bikeFrameCounter < 2) // do not go faster than the last element in the mach bike array
@@ -400,6 +415,7 @@ static u8 AcroBikeHandleInputWheelieStanding(u8 *newDirection, u16 newKeys, u16 
     struct ObjectEvent *playerObjEvent;
 
     direction = GetPlayerMovementDirection();
+    
     playerObjEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
     gPlayerAvatar.runningState = NOT_MOVING;
 
@@ -595,7 +611,10 @@ static void AcroBikeTransition_Moving(u8 direction)
     }
     else
     {
-        PlayerRideWaterCurrent(direction);
+        if (ObjectMovingOnRockStairs(playerObjEvent, direction))
+            PlayerWalkFast(direction);
+        else
+            PlayerRideWaterCurrent(direction);
     }
 }
 
@@ -728,6 +747,7 @@ static void AcroBikeTransition_WheelieMoving(u8 direction)
         }
         return;
     }
+    
     PlayerWheelieMove(direction);
     gPlayerAvatar.runningState = MOVING;
 }
@@ -762,6 +782,7 @@ static void AcroBikeTransition_WheelieRisingMoving(u8 direction)
         }
         return;
     }
+
     PlayerPopWheelieWhileMoving(direction);
     gPlayerAvatar.runningState = MOVING;
 }
@@ -785,6 +806,7 @@ static void AcroBikeTransition_WheelieLoweringMoving(u8 direction)
             PlayerEndWheelie(direction);
         return;
     }
+
     PlayerEndWheelieWhileMoving(direction);
 }
 
