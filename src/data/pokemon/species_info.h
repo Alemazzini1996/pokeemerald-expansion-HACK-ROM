@@ -12023,12 +12023,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_REGIGIGAS] =
     {
-        .baseHP        = 110,
-        .baseAttack    = 160,
-        .baseDefense   = 110,
+        .baseHP        = 120,
+        .baseAttack    = 140,
+        .baseDefense   = 120,
         .baseSpeed     = 100,
         .baseSpAttack  = 80,
-        .baseSpDefense = 110,
+        .baseSpDefense = 120,
         .types = { TYPE_NORMAL, TYPE_NORMAL},
         .catchRate = 3,
         .expYield = 302,
