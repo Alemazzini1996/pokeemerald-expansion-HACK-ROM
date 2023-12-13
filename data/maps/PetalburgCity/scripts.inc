@@ -9,7 +9,7 @@ PetalburgCity_MapScripts::
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, PetalburgCity_OnFrame
 	.byte 0
 
-PetalburgCity_OnTransition:
+PetalburgCity_OnTransition::
 	setflag FLAG_VISITED_PETALBURG_CITY
 	setflag FLAG_VISITED_ROUTE102
 	call_if_eq VAR_PETALBURG_CITY_STATE, 0, PetalburgCity_EventScript_MoveGymBoyToWestEntrance
@@ -192,7 +192,7 @@ PetalburgCity_Movement_WallyTutorialPlayer:
 	walk_right
 	walk_right
 	walk_right
-	walk_right
+	walk_slow_diag_southeast
 	walk_right
 	walk_right
 	walk_right
@@ -244,7 +244,7 @@ PetalburgCity_Movement_WallyTutorialWally:
 	walk_right
 	walk_right
 	walk_right
-	walk_right
+	walk_slow_diag_southeast
 	walk_right
 	walk_right
 	walk_right

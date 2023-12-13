@@ -138,6 +138,7 @@ PetalburgWoods_Movement_DevonResearcherExitLeft:
 	walk_fast_right
 	walk_fast_up
 	walk_fast_up
+	walk_fast_left
 	walk_fast_up
 	walk_fast_up
 	walk_fast_up
