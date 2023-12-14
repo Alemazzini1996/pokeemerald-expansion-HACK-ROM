@@ -192,6 +192,7 @@ PetalburgCity_Movement_WallyTutorialPlayer:
 	walk_right
 	walk_right
 	walk_right
+	delay_4
 	walk_slow_diag_southeast
 	walk_right
 	walk_right
@@ -245,6 +246,7 @@ PetalburgCity_Movement_WallyTutorialWally:
 	walk_right
 	walk_right
 	walk_slow_diag_southeast
+	delay_4
 	walk_right
 	walk_right
 	walk_right
