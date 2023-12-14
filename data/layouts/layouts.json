@@ -1344,8 +1344,8 @@
     {
       "id": "LAYOUT_PETALBURG_WOODS",
       "name": "PetalburgWoods_Layout",
-      "width": 68,
-      "height": 68,
+      "width": 56,
+      "height": 56,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/PetalburgWoods/border.bin",
@@ -4460,6 +4460,16 @@
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/Route135/border.bin",
       "blockdata_filepath": "data/layouts/Route135/map.bin"
+    },
+    {
+      "id": "LAYOUT_ILEX_SHRINE",
+      "name": "IlexShrine_Layout",
+      "width": 40,
+      "height": 42,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/IlexShrine/border.bin",
+      "blockdata_filepath": "data/layouts/IlexShrine/map.bin"
     }
   ]
 }
