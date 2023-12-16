@@ -5901,10 +5901,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_VOLT_TACKLE] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_4
-            .effect = EFFECT_RECOIL_33_STATUS,
+            .effect = EFFECT_CLOSE_COMBAT,
             .argument = STATUS1_PARALYSIS,
         #else
-            .effect = EFFECT_RECOIL_33,
+            .effect = EFFECT_CLOSE_COMBAT,
         #endif
         .power = 120,
         .type = TYPE_ELECTRIC,
@@ -8889,12 +8889,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_WILD_CHARGE] =
     {
-        .effect = EFFECT_RECOIL_25,
+        .effect = EFFECT_PARALYZE_HIT,
         .power = 90,
         .type = TYPE_ELECTRIC,
         .accuracy = 100,
         .pp = 15,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .split = SPLIT_PHYSICAL,
