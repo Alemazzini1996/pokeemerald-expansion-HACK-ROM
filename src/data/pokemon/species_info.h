@@ -10209,10 +10209,10 @@ const struct SpeciesInfo gSpeciesInfo[] =
     {
         .baseHP        = 45,
         .baseAttack    = 65,
-        .baseDefense   = 34,
+        .baseDefense   = 35,
         .baseSpeed     = 45,
         .baseSpAttack  = 40,
-        .baseSpDefense = 34,
+        .baseSpDefense = 35,
         .types = { TYPE_ELECTRIC, TYPE_ELECTRIC},
         .catchRate = 235,
         .expYield = 53,
@@ -10231,10 +10231,10 @@ const struct SpeciesInfo gSpeciesInfo[] =
     {
         .baseHP        = 60,
         .baseAttack    = 85,
-        .baseDefense   = 49,
+        .baseDefense   = 50,
         .baseSpeed     = 60,
         .baseSpAttack  = 60,
-        .baseSpDefense = 49,
+        .baseSpDefense = 50,
         .types = { TYPE_ELECTRIC, TYPE_DARK},
         .catchRate = 120,
         .expYield = 127,
@@ -10251,12 +10251,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_LUXRAY] =
     {
-        .baseHP        = 80,
+        .baseHP        = 90,
         .baseAttack    = 120,
-        .baseDefense   = 79,
-        .baseSpeed     = 70,
-        .baseSpAttack  = 95,
-        .baseSpDefense = 79,
+        .baseDefense   = 80,
+        .baseSpeed     = 95,
+        .baseSpAttack  = 70,
+        .baseSpDefense = 80,
         .types = { TYPE_ELECTRIC, TYPE_DARK},
         .catchRate = 45,
         .expYield = 235,
