@@ -342,6 +342,14 @@ PetalburgWoods_EventScript_ItemEther::
 	finditem ITEM_ETHER
 	end
 
+PetalburgWoods_EventScript_ItemLeftovers::
+	finditem ITEM_LEFTOVERS
+	end
+
+PetalburgWoods_EventScript_ItemLeafStone::
+	finditem ITEM_LEAF_STONE
+	end
+
 PetalburgWoods_EventScript_ItemParalyzeHeal::
 	finditem ITEM_PARALYZE_HEAL
 	end
