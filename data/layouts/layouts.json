@@ -4470,6 +4470,16 @@
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/IlexShrine/border.bin",
       "blockdata_filepath": "data/layouts/IlexShrine/map.bin"
+    },
+    {
+      "id": "LAYOUT_PETALBURG_WOODS_HUT",
+      "name": "PetalburgWoodsHut_Layout",
+      "width": 6,
+      "height": 5,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "border_filepath": "data/layouts/PetalburgWoodsHut/border.bin",
+      "blockdata_filepath": "data/layouts/PetalburgWoodsHut/map.bin"
     }
   ]
 }

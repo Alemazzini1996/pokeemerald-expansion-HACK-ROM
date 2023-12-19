@@ -1076,3 +1076,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Route135/scripts.inc"
 
 	.include "data/maps/IlexShrine/scripts.inc"
+
+	.include "data/maps/PetalburgWoodsHut/scripts.inc"
