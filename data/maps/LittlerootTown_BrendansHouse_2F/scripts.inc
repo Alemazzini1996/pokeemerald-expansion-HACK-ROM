@@ -476,7 +476,8 @@ PlayersHouse_2F_Text_Notebook:
 	.string "100% CATCH RATE: BestBall.\p"
 	.string "EV IGNORED IN STAT CALC: EviesDayOff.\p"
 	.string "IV IGNORED IN STAT CALC: IvysDayOff.\p"
-	.string "LEVEL CAP REMOVED: StopTheCap.$"
+	.string "LEVEL CAP REMOVED: StopTheCap.\p"
+	.string "GRINDRUN MACH-BIKE SPEED: Need4Speed.$"
 
 Common_Text_LookCloserAtMap:
 	.string "{PLAYER} took a closer look at the\n"
