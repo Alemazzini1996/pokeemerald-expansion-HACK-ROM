@@ -65,8 +65,6 @@
 #include "constants/songs.h"
 #include "constants/trainers.h"
 #include "cable_club.h"
-#include "field_weather.h" //added wiz1989
-#include "constants/weather.h" //added wiz1989
 
 extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 
@@ -516,29 +514,7 @@ static void CB2_InitBattleInternal(void)
 {
     s32 i;
     u16 targetSpecies;
-    u32 weather; //added var wiz1989
-
-
-    //set temporary battle weather wiz1989
-    weather = VarGet(VAR_TEMP_F);
-
-    if (weather == WEATHER_RAIN) {
-        SetCurrentAndNextWeather(WEATHER_RAIN);
-    }
-    else if (weather == WEATHER_SUNNY) {
-        SetCurrentAndNextWeather(WEATHER_DROUGHT);
-    }
-    else if (weather == WEATHER_SANDSTORM) {
-        SetCurrentAndNextWeather(WEATHER_SANDSTORM);
-    }
-    else if (weather == WEATHER_SNOW) {
-        SetCurrentAndNextWeather(WEATHER_SNOW);
-    }
-    else {
-        SetCurrentAndNextWeather(B_WEATHER_NONE);
-    }
-    //end
-
+    
     SetHBlankCallback(NULL);
     SetVBlankCallback(NULL);
 

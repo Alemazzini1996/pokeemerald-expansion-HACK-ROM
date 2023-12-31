@@ -7355,25 +7355,6 @@ static const struct LevelUpMove sAggronLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
-/*standard legacy settings
-static const struct LevelUpMove sCastformLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 1, MOVE_TACKLE),
-    LEVEL_UP_MOVE(10, MOVE_WATER_GUN),
-    LEVEL_UP_MOVE(10, MOVE_EMBER),
-    LEVEL_UP_MOVE(10, MOVE_POWDER_SNOW),
-    LEVEL_UP_MOVE(15, MOVE_HEADBUTT),
-    LEVEL_UP_MOVE(20, MOVE_RAIN_DANCE),
-    LEVEL_UP_MOVE(20, MOVE_SUNNY_DAY),
-    LEVEL_UP_MOVE(20, MOVE_HAIL),
-    LEVEL_UP_MOVE(25, MOVE_WEATHER_BALL),
-    LEVEL_UP_MOVE(35, MOVE_HYDRO_PUMP),
-    LEVEL_UP_MOVE(35, MOVE_FIRE_BLAST),
-    LEVEL_UP_MOVE(35, MOVE_BLIZZARD),
-    LEVEL_UP_MOVE(45, MOVE_HURRICANE),
-    LEVEL_UP_END
-};
-*/
-
 static const struct LevelUpMove sCastformLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE(10, MOVE_WATER_GUN),
